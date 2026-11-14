@@ -27,12 +27,3 @@ The check starts a temporary workbench and a loopback test provider. It imports 
 3. Select **Contextualize model**. Review accepted preferences and their evidence in **Contextualized**. Download the JSON result or export the current diagram as SVG or PNG.
 
 The contextualization step sends the persona, goal model, and relevant pattern rules to the configured provider. Local workspaces and run evidence are written under `data/workspaces/` and `data/runs/p10/`. Use **Original** to export an input diagram without calling a provider. The optional SHOP2 planning API also requires Java on `PATH`.
-
-## Implementation and evidence
-
-- [`apate/`](apate/) implements import, workspace management, the local server, and model export.
-- [`web/`](web/) implements the browser interface and iStar diagrams.
-- [`method/`](method/) contains the P10 worker, its original generator and checker prompts, the v43-07 catalogue, and the release seal. The release uses local provider settings and its own integrity manifest. The executable pattern catalogue and P10 prompts retain their study versions. Provider and model choice can affect live output.
-- [`examples/`](examples/) contains importable models. The separate paper supplement contains the expert instruments and the archived model figures.
-
-See [supported imports](docs/model_import_notes.md), [diagram notation](docs/diagram_notation.md), [the final-model contract](docs/final_model_output.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
