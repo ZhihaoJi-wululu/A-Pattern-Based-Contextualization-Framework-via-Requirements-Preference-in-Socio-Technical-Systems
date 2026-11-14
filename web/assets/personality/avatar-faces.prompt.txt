@@ -1,0 +1,20 @@
+Use case: productivity-visual.
+Asset type: ONE production sprite sheet for a small website personality avatar, with 15 expression states of the SAME friendly round human face. This sheet will be used as a single UI atlas. Layout is exactly 5 equal columns by 3 equal rows, 15 equally sized square cells, landscape 5:3 overall aspect. Transparent background. No grid lines, cell borders, text, numbers, lettering, labels or watermark. Every face is centred in its cell with equal optical scale and 8% cell padding. No face or symbol crosses a cell boundary.
+Style: refined flat editorial emoji portrait, large round softly peach face, short simple dark-sage hair cap, bold dark-sage facial features, solid colour shapes, expressive clearly different eyes/eyebrows/mouth. Soft cream, sage, peach, small muted coral or gold accents. Rounded outlines equivalent to 2px at final 24px size. Adult, warm, neutral, professional. Head only with optional tiny hand or one large simple corner symbol; no body or full figure, no neck/clothing. Face occupies about 80% cell width. Strong silhouette, sparse details, crisp substantial features that survive 24px display. No painterly texture, gradients, fine lines or decorative clutter.
+The avatar's states in row-major order:
+Row 1 column 1 Sociability: delighted open smile looking towards ONE simple speech bubble beside the cheek.
+Row 1 column 2 Assertiveness: confident raised eyebrow, steady direct gaze, small open speaking mouth, ONE clear speech burst.
+Row 1 column 3 Energy Level: bright excited wide smile and lively eyes, ONE bold gold lightning bolt.
+Row 1 column 4 Compassion: tender concerned eyebrows, warm gentle smile, ONE coral heart by the cheek.
+Row 1 column 5 Respectfulness: eyes softly closed in a courteous nod, peaceful smile, ONE small simplified raised open palm.
+Row 2 column 1 Trust: relaxed open eyes, reassuring smile, ONE simple sage shield with white check.
+Row 2 column 2 Organization: focused composed face with neat tidy hair, ONE simple three-bar checklist badge.
+Row 2 column 3 Productiveness: determined focused eyebrows and small satisfied smile, ONE bold forward arrow.
+Row 2 column 4 Responsibility: calm reliable direct gaze and firm kind smile, ONE large checkmark badge.
+Row 2 column 5 Anxiety: gently worried raised inner eyebrows, small uneasy mouth, ONE pale blue sweat drop. Respectful, non-exaggerated.
+Row 3 column 1 Depression: low-energy downcast eyes and gently downturned mouth, subdued blue-grey accent. Respectful, non-caricatured, no tears.
+Row 3 column 2 Emotional Volatility: wide startled eyes, asymmetrical eyebrows and small open mouth, ONE curved coral motion mark. Respectful, non-caricatured.
+Row 3 column 3 Intellectual Curiosity: curious lifted eyebrow looking towards ONE bold question-mark-shaped thought curl. No written text.
+Row 3 column 4 Aesthetic Sensitivity: serene appreciative smiling eyes looking towards ONE simple coral flower.
+Row 3 column 5 Creative Imagination: inspired joyful face looking up towards ONE glowing gold lightbulb silhouette.
+Keep all 15 cells present, evenly spaced, consistent scale, same facial identity, same drawing style, clear distinct expressions. Deliver the entire atlas on genuinely transparent background.

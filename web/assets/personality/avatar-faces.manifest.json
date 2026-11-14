@@ -1,0 +1,179 @@
+{
+  "asset": "avatar-faces.png",
+  "source": "Generated with OpenAI image generation for the PATPREF personality picker",
+  "tool_mode": "built-in image_gen",
+  "created": "2026-10-31",
+  "width": 1619,
+  "height": 971,
+  "mode": "RGBA",
+  "sha256": "bbc55c2a65f418b4755180d5dfb43bc44f6927905ed345951a7cf5f619b43852",
+  "bytes": 1463494,
+  "prompt_file": "avatar-faces.prompt.txt",
+  "display_size_px": 28,
+  "column_bounds": [
+    0,
+    352,
+    665,
+    985,
+    1310,
+    1619
+  ],
+  "row_bounds": [
+    0,
+    330,
+    620,
+    971
+  ],
+  "slots": [
+    {
+      "facet": "Sociability",
+      "slot": 0,
+      "bounds": [
+        0,
+        0,
+        352,
+        330
+      ]
+    },
+    {
+      "facet": "Assertiveness",
+      "slot": 1,
+      "bounds": [
+        352,
+        0,
+        665,
+        330
+      ]
+    },
+    {
+      "facet": "Energy Level",
+      "slot": 2,
+      "bounds": [
+        665,
+        0,
+        985,
+        330
+      ]
+    },
+    {
+      "facet": "Compassion",
+      "slot": 3,
+      "bounds": [
+        985,
+        0,
+        1310,
+        330
+      ]
+    },
+    {
+      "facet": "Respectfulness",
+      "slot": 4,
+      "bounds": [
+        1310,
+        0,
+        1619,
+        330
+      ]
+    },
+    {
+      "facet": "Trust",
+      "slot": 5,
+      "bounds": [
+        0,
+        330,
+        352,
+        620
+      ]
+    },
+    {
+      "facet": "Organization",
+      "slot": 6,
+      "bounds": [
+        352,
+        330,
+        665,
+        620
+      ]
+    },
+    {
+      "facet": "Productiveness",
+      "slot": 7,
+      "bounds": [
+        665,
+        330,
+        985,
+        620
+      ]
+    },
+    {
+      "facet": "Responsibility",
+      "slot": 8,
+      "bounds": [
+        985,
+        330,
+        1310,
+        620
+      ]
+    },
+    {
+      "facet": "Anxiety",
+      "slot": 9,
+      "bounds": [
+        1310,
+        330,
+        1619,
+        620
+      ]
+    },
+    {
+      "facet": "Depression",
+      "slot": 10,
+      "bounds": [
+        0,
+        620,
+        352,
+        971
+      ]
+    },
+    {
+      "facet": "Emotional Volatility",
+      "slot": 11,
+      "bounds": [
+        352,
+        620,
+        665,
+        971
+      ]
+    },
+    {
+      "facet": "Intellectual Curiosity",
+      "slot": 12,
+      "bounds": [
+        665,
+        620,
+        985,
+        971
+      ]
+    },
+    {
+      "facet": "Aesthetic Sensitivity",
+      "slot": 13,
+      "bounds": [
+        985,
+        620,
+        1310,
+        971
+      ]
+    },
+    {
+      "facet": "Creative Imagination",
+      "slot": 14,
+      "bounds": [
+        1310,
+        620,
+        1619,
+        971
+      ]
+    }
+  ]
+}

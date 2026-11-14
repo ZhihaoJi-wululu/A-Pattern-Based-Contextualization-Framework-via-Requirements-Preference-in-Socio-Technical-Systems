@@ -1,0 +1,111 @@
+{
+  "repository": "https://github.com/jhcp/piStar",
+  "revision": "974d729ee9cbc193c93c403490ab2de471f591f0",
+  "upstream_head_verified": "2026-10-29",
+  "upstream_commit_date": "2026-06-14",
+  "license": "MIT (piStar); runtime dependencies retain their own licenses",
+  "integration": "Existing piStar iStar shape classes and pinned JointJS runtime; application orchestration and preference annotations are APATE code.",
+  "files": [
+    {
+      "path": "defaultShapes.js",
+      "source_path": "tool/app/istarcore/defaultShapes.js",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/tool/app/istarcore/defaultShapes.js",
+      "sha256": "6bf526ea47e523c8235791b914cd094964464fa2be7d12d2e7e15c4734e83503",
+      "bytes": 7887,
+      "modified": false
+    },
+    {
+      "path": "shapes.js",
+      "source_path": "tool/language/shapes.js",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/tool/language/shapes.js",
+      "sha256": "3f443b355cd6361f733b20a3dc043eac03ba80179f21e021daff4ee07d5109f9",
+      "bytes": 21151,
+      "modified": false
+    },
+    {
+      "path": "lib/jquery.min.js",
+      "source_path": "tool/app/istarcore/lib/jquery.min.js",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/tool/app/istarcore/lib/jquery.min.js",
+      "sha256": "4fe68fa216176e6d1f4580e924bafecc9f519984ecc06b1a840a08b0d88c95de",
+      "bytes": 86929,
+      "modified": false
+    },
+    {
+      "path": "lib/lodash.min.js",
+      "source_path": "tool/app/istarcore/lib/lodash.min.js",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/tool/app/istarcore/lib/lodash.min.js",
+      "sha256": "bd00f239644dd27c1b27e8ef98140e32ec3da2443ed1c341dfaeb1cce0bfdf0f",
+      "bytes": 74124,
+      "modified": false
+    },
+    {
+      "path": "lib/backbone-min.js",
+      "source_path": "tool/app/istarcore/lib/backbone-min.js",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/tool/app/istarcore/lib/backbone-min.js",
+      "sha256": "c5d46816f7807f7d68d0d5d60ed3a861bd47e7c3f5c30e8eca0c115b3b3e76a9",
+      "bytes": 25007,
+      "modified": false
+    },
+    {
+      "path": "lib/joint.min.js",
+      "source_path": "tool/app/istarcore/lib/joint.min.js",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/tool/app/istarcore/lib/joint.min.js",
+      "sha256": "350f6c70e976585461f54390e3d9a14dfaa41360a09e339512e0ace0b386f534",
+      "bytes": 431872,
+      "modified": false
+    },
+    {
+      "path": "lib/joint.min.css",
+      "source_path": "tool/app/istarcore/lib/joint.min.css",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/tool/app/istarcore/lib/joint.min.css",
+      "sha256": "87a058419041727f97350dd9389fd15ed4526d5c21a343232c94c484523a0103",
+      "bytes": 46322,
+      "modified": false
+    },
+    {
+      "path": "LICENSE",
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/jhcp/piStar/974d729ee9cbc193c93c403490ab2de471f591f0/LICENSE",
+      "sha256": "2a016a0dbded331ba5c5841b0fb4638d4728c4817e9e5ad62a5a2b77d4056bba",
+      "bytes": 1092,
+      "modified": false
+    }
+  ],
+  "license_files": [
+    {
+      "path": "LICENSES/JointJS-MPL-2.0.txt",
+      "source_url": "https://raw.githubusercontent.com/clientIO/joint/v3.4.4/LICENSE",
+      "sha256": "c87b2072cc960fceb3852757b598d27cd0767582c405ad0e02e780dce3f44431",
+      "bytes": 16768,
+      "modified": false
+    },
+    {
+      "path": "LICENSES/Underscore-MIT.txt",
+      "source_url": "https://raw.githubusercontent.com/jashkenas/underscore/1.8.3/LICENSE",
+      "sha256": "57c78146cd350e9c88c82d4fa0c8a5369e7a8c4ae9fa47e80fe13e13aa9ff00e",
+      "bytes": 1117,
+      "modified": false
+    },
+    {
+      "path": "LICENSES/backbone-MIT.txt",
+      "source_url": "https://raw.githubusercontent.com/jashkenas/backbone/1.4.0/LICENSE",
+      "sha256": "7326bd7c843c377809ed5e4e52384331bb0f0e257d5afc9be93da3a2c78ec438",
+      "bytes": 1079,
+      "modified": false
+    },
+    {
+      "path": "LICENSES/jquery-MIT.txt",
+      "source_url": "https://raw.githubusercontent.com/jquery/jquery/3.3.1/LICENSE.txt",
+      "sha256": "2b3ed8ba424423a50b023e728530d94bc385cfc7c328ad65a3dfee9c7c0531c5",
+      "bytes": 1605,
+      "modified": false
+    },
+    {
+      "path": "LICENSES/lodash-MIT.txt",
+      "source_url": "https://raw.githubusercontent.com/lodash/lodash/4.17.21/LICENSE",
+      "sha256": "f71e8ed126b46346494aad5486874cd8f0aafe95092ed67d2e3cb6110f939abc",
+      "bytes": 1952,
+      "modified": false
+    }
+  ]
+}

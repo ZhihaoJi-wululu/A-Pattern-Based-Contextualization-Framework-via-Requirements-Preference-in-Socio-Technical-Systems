@@ -1,0 +1,99 @@
+{
+  "project": "Lucide",
+  "repository": "https://github.com/lucide-icons/lucide",
+  "revision": "81875c8c42d2320fa5123b37fee3554f4ca2bddc",
+  "license_url": "https://lucide.dev/license",
+  "retrieved": "2026-10-30",
+  "assets": [
+    {
+      "name": "messages-square",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/messages-square.svg",
+      "sha256": "97733c58b74f8beddd569927f8453c86bca4afa394e6aad606db1acff4bd8355",
+      "bytes": 457
+    },
+    {
+      "name": "megaphone",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/megaphone.svg",
+      "sha256": "279096a06626ec84f76a6358cf25b919d77d6fa53e82892397c0f2a907602850",
+      "bytes": 431
+    },
+    {
+      "name": "zap",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/zap.svg",
+      "sha256": "4c395891eab4d1e5627c5d414a16db037317cb2f12453de0f3a1130964c6d444",
+      "bytes": 390
+    },
+    {
+      "name": "heart-handshake",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/heart-handshake.svg",
+      "sha256": "4b891b9c7f394643f540f9ff96fb8054bc6891a6aee427b0227743ec3098a82e",
+      "bytes": 563
+    },
+    {
+      "name": "handshake",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/handshake.svg",
+      "sha256": "f58638064a1884e256895720c9a665d9e98cfc6935c52e14782ce0e84ecdad02",
+      "bytes": 505
+    },
+    {
+      "name": "shield-check",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/shield-check.svg",
+      "sha256": "8d4fcdbde5bba4abb1a2f6fe53e37ceb6343a1d5449a9d88f6f97c1971d26c4e",
+      "bytes": 415
+    },
+    {
+      "name": "folders",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/folders.svg",
+      "sha256": "667be280e0a8f5d7ccd4f2f8d0dc92fc10ee785e9fb4ad248076f2b1ce5dc382",
+      "bytes": 421
+    },
+    {
+      "name": "list-checks",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/list-checks.svg",
+      "sha256": "08d26ab05aaf724222c4c0cd5a19d5eae753b2a5fff0eb2d81759dde11bac6b6",
+      "bytes": 336
+    },
+    {
+      "name": "badge-check",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/badge-check.svg",
+      "sha256": "a83b36e35ed35be896c5e5d39d0a63ba4368735ac22f09a26a31726259467775",
+      "bytes": 417
+    },
+    {
+      "name": "cloud-alert",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/cloud-alert.svg",
+      "sha256": "54a81ea9367c151bb1bb572879988048ffff5f072feee467da54bde97117ef2a",
+      "bytes": 331
+    },
+    {
+      "name": "cloud-drizzle",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/cloud-drizzle.svg",
+      "sha256": "1d19c1c62d82734241a9d8d5b3585a2c93ff70cb9d8cf47127cb1a18aa6c54b4",
+      "bytes": 422
+    },
+    {
+      "name": "waves-horizontal",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/waves-horizontal.svg",
+      "sha256": "b31f6534ef601e7c138922e99b0557ae61db7e5704c1a05806ecb78b2eaad443",
+      "bytes": 336
+    },
+    {
+      "name": "brain",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/brain.svg",
+      "sha256": "91830115f859daa12e7f2f63fc072311329e363bb8b0b4707f510bcb60c2ab18",
+      "bytes": 596
+    },
+    {
+      "name": "palette",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/palette.svg",
+      "sha256": "8e7d3fde990cffd10469ba351f27c50202b057a9bb9af5626322e53fd3abc78c",
+      "bytes": 571
+    },
+    {
+      "name": "lightbulb",
+      "url": "https://raw.githubusercontent.com/lucide-icons/lucide/81875c8c42d2320fa5123b37fee3554f4ca2bddc/icons/lightbulb.svg",
+      "sha256": "e33bbec15b1e64cca958e086850f951c0dc2201cd5778bb3695fda3cb6ea457d",
+      "bytes": 371
+    }
+  ]
+}

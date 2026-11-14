@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apate-ui-revision" content="{{FRONTEND_REVISION}}">
+  <title>PATPREF · Persona Contextualization</title>
+  <link rel="stylesheet" href="/vendor/pistar/lib/joint.min.css">
+  <link rel="stylesheet" href="/style.css?v={{FRONTEND_REVISION}}">
+</head>
+<body id="workbenchApp">
+  <header class="app-header">
+    <a class="brand" href="/" aria-label="PATPREF home"><span class="brand-mark">P</span><span>PATPREF<small>PERSONA CONTEXTUALIZATION</small></span></a>
+    <p>Bring your model. Add a persona. Explore its preferences.</p>
+    <a id="rendererLink" class="renderer-credit" href="https://github.com/jhcp/piStar" target="_blank" rel="noreferrer"><span class="credit-dot"></span><span id="rendererAttribution">piStar · iStar 2.0</span></a>
+  </header>
+  <main class="workbench">
+    <aside class="input-column" aria-label="Model and persona inputs">
+      <section class="input-card model-input-card">
+        <div class="card-heading"><span class="section-mark">01</span><div><h1>Import an i* model</h1><p>JSON or XML</p></div></div>
+        <button id="chooseModelButton" class="file-button"><span class="file-symbol" aria-hidden="true">↥</span><span>Choose model file<small>.json · .xml · .istarml</small></span></button>
+        <input id="modelInput" type="file" accept=".json,.xml,.istarml,application/json,application/xml,text/xml" hidden>
+        <details class="paste-input"><summary>Paste model content</summary><label class="sr-only" for="pasteModel">Model JSON or XML</label><textarea id="pasteModel" rows="5" spellcheck="false" placeholder="Paste i* JSON or XML"></textarea><button id="pasteImportButton" class="secondary">Import model</button></details>
+        <div class="example-control"><label for="referenceSelect">Or explore an example</label><div><select id="referenceSelect"><option value="">Choose an example</option></select><button id="loadExampleButton" class="secondary">Load</button></div></div>
+      </section>
+      <section class="input-card persona-card">
+        <div class="card-heading"><span class="section-mark">02</span><div><h2>Your persona</h2><p>Who will use or carry out this model?</p></div></div>
+        <form id="personaForm"><fieldset id="personaFields" disabled>
+          <label class="field-label" for="actorName">Name</label><input id="actorName" autocomplete="off" placeholder="Persona name">
+          <fieldset class="choice-fieldset"><legend>Acts as</legend><p id="roleHelp" class="field-help">Choose the role this persona plays in the model. You can select one role from a model with several roles.</p><div id="roleChoices" class="role-choices" aria-describedby="roleHelp"><p class="muted">Import a model to see its actors and roles.</p></div></fieldset>
+          <fieldset class="choice-fieldset"><legend>Personality facets</legend><p id="facetHelp" class="field-help">Select facets supported by the description. Hover a facet to read its meaning.</p><div id="facetChoices" class="facet-choices" aria-describedby="facetHelp"></div></fieldset>
+          <label class="field-label" for="personaDescription">Persona description</label><p id="personaDescriptionHelp" class="field-help">Describe this person's usual characteristics and behavior.</p><textarea id="personaDescription" rows="5" aria-describedby="personaDescriptionHelp" placeholder="Persona description"></textarea>
+          <p class="field-help">PATPREF applies its personality pattern catalogue to the supplied persona and goal model.</p>
+        </fieldset><button id="contextualizeButton" type="submit" class="primary" disabled><span id="contextualizeLabel">Contextualize model</span><span aria-hidden="true">↗</span></button></form>
+      </section>
+    </aside>
+    <section class="model-workspace" aria-label="Model visualization">
+      <div class="workspace-heading"><div><span class="eyebrow">I* MODEL</span><h2 id="workspaceName">Your model starts here</h2><p id="modelMeta">Import an existing i* model to begin.</p></div><button id="downloadModelButton" class="secondary" disabled>Download model</button></div>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      <div class="viewer-card">
+        <div class="viewer-toolbar"><div class="view-switch" aria-label="Model view"><button id="originalButton" class="active" aria-pressed="true">Original</button><button id="contextualizedButton" aria-pressed="false" disabled>Contextualized</button></div><div class="viewer-actions"><button id="zoomOutButton" aria-label="Zoom out">−</button><button id="autoLayoutButton" disabled>Auto layout</button><button id="fitButton">Fit</button><button id="zoomInButton" aria-label="Zoom in">+</button><span class="toolbar-divider"></span><button id="downloadSvgButton" disabled>Export SVG</button><button id="downloadPngButton" disabled>Export PNG</button></div></div>
+        <div class="viewer-caption"><span id="viewTitle">Original model</span><span id="resultSummary"></span></div>
+        <div id="selectionDetail" class="selection-detail" hidden><div><b id="selectionTitle"></b><p id="selectionText"></p></div><div class="selection-actions"><button id="resetCurveButton" hidden>Reset curve</button><button id="clearSelectionButton" aria-label="Close selected element details">×</button></div></div>
+        <div class="viewer-reading-tools">
+          <p id="canvasHelp">Follow each goal down to its tasks. Alternatives share a row; quality clouds sit beside the relevant branches. Select a line to trace its endpoints.</p>
+          <details id="diagramKey" class="diagram-key">
+            <summary><span>Diagram key</span><small>Shapes and relationships</small></summary>
+            <div class="diagram-key-content">
+              <div class="diagram-key-heading">Elements</div>
+              <div class="diagram-symbol-grid">
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><circle cx="56" cy="34" r="28"/><text x="56" y="38">Actor</text></svg><div><b>Actor</b><p>An entity with goals and intentions.</p></div></div>
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><circle cx="56" cy="31" r="26"/><path d="M 36 47 Q 56 57 76 47" class="symbol-line"/><text x="56" y="35">Role</text></svg><div><b>Role</b><p>A responsibility or function an actor may play.</p></div></div>
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><circle cx="56" cy="37" r="26"/><path d="M 36 21 H 76" class="symbol-line"/><text x="56" y="41">Agent</text></svg><div><b>Agent</b><p>A concrete actor with an identity.</p></div></div>
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><rect x="5" y="14" width="102" height="40" rx="17" class="symbol-intention"/><text x="56" y="38">Goal</text></svg><div><b>Goal</b><p>A state or outcome with clear achievement criteria.</p></div></div>
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><polygon points="5,34 18,14 94,14 107,34 94,54 18,54" class="symbol-intention"/><text x="56" y="38">Task</text><circle cx="18" cy="14" r="10" class="symbol-task-reference"/><text x="18" y="17" class="symbol-small symbol-task-reference-text">t1</text></svg><div><b>Task</b><p>An activity or a way to achieve a goal. Its upper-left badge shows its task reference.</p></div></div>
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><rect x="6" y="14" width="100" height="40" class="symbol-resource"/><text x="56" y="38">Resource</text></svg><div><b>Resource</b><p>Information or a physical entity needed or provided.</p></div></div>
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><path class="symbol-quality" transform="translate(5,22) scale(.9)" d="m 60.637955,-4.0358 c 17.5174,2.2042 29.9953,-10.69554 41.892705,-4.7858 22.34142,10.8714 11.2203,43.7743 -2.25,47.7322 -8.276505,2.9084 -13.960205,5.1934 -46.142805,-2.1786 -6.7454,-2.2317 -28.2652,6.0799 -35.4643,4.7143 C 9.072156,39.4809 6.491756,33.7693 3.744956,28.482 c -6.3069,-15.1266 -2.5738,-28.0439 7.981099,-34.7856 10.5549,-6.74179 27.9316,-7.30796 48.9119,2.2678 z"/><text x="56" y="40">Quality</text></svg><div><b>Quality / softgoal</b><p>An attribute such as organized materials or privacy. Quality is the iStar 2.0 term; older inputs may call it a softgoal. Its target can be precise or approximate.</p></div></div>
+                <div class="diagram-symbol"><svg viewBox="0 0 112 68" aria-hidden="true"><ellipse cx="56" cy="47" rx="41" ry="18" class="symbol-scope"/><rect x="43" y="42" width="26" height="12" rx="6" class="symbol-intention"/><circle cx="56" cy="15" r="12"/><text x="56" y="18" class="symbol-small">Role</text><path d="M 47 22 Q 56 27 65 22" class="symbol-line"/></svg><div><b>Actor / role scope</b><p>A dashed boundary groups the actor's own elements. The named symbol sits just outside the top of its scope.</p></div></div>
+              </div>
+              <div class="diagram-key-heading">Relationships and annotations</div>
+              <div class="diagram-relation-grid">
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 10 34 Q 55 34 116 10 M 108 4 L 120 16" class="symbol-line"/><text x="66" y="18">AND</text></svg><div><b>AND refinement</b><p>All required children contribute to the parent. AND does not set their order.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 10 34 Q 55 34 113 12" class="symbol-line"/><path d="M 113 5 L 123 9 L 116 19 Z" class="symbol-marker"/><text x="65" y="18">OR</text></svg><div><b>OR refinement</b><p>Alternative ways to satisfy the parent.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 7 34 Q 63 34 123 12 M 113 11 L 123 12 L 119 22" class="symbol-line symbol-contribution"/><text x="62" y="17">++ / --</text></svg><div><b>Contribution to a Quality</b><p>Make (++) and Help (+) provide sufficient or weak positive evidence. Hurt (−) and Break (−−) provide weak or sufficient negative evidence. These links describe effects on a Quality.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 5 34 Q 65 34 127 12" class="symbol-line"/><rect x="55" y="10" width="19" height="22" class="symbol-label-back"/><text x="65" y="26" class="symbol-dependency">D</text></svg><div><b>Dependency</b><p>A depender relies on a dependee for the goal, task, resource or quality represented by the dependum.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 6 34 Q 62 34 122 12 M 112 11 L 122 12 L 118 22" class="symbol-assignment"/><text x="65" y="17">play</text></svg><div><b>Persona assignment</b><p>The concrete persona plays the selected role in the model.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 5 35 Q 65 35 124 13 M 114 12 L 124 13 L 120 23" class="symbol-preference"/><text x="66" y="17" class="symbol-preference-text">preferred_to</text></svg><div><b>Choice preference</b><p>The source alternative is preferred to the target alternative. This is the preference relation added by contextualization.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 6 35 Q 65 35 124 12 M 114 11 L 124 12 L 120 22" class="symbol-line"/><text x="65" y="17">pre / npr</text></svg><div><b>Input start condition</b><p>pre: the source must be attained before the target starts. npr: it must not yet be attained at that point.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 8 34 Q 63 34 123 12" style="stroke-dasharray:2 5"/><text x="65" y="17">qualifies</text></svg><div><b>Qualification</b><p>A Quality describes a desired attribute of a goal, task or resource. The dotted link identifies what the Quality refers to.</p></div></div>
+                <div class="diagram-relation"><svg viewBox="0 0 132 44" aria-hidden="true"><path d="M 8 34 Q 63 34 118 13"/><circle cx="121" cy="12" r="4" fill="white" stroke="#3f5146"/><text x="65" y="17">needed by</text></svg><div><b>NeededBy</b><p>A task needs the linked resource, such as an approved file or a piece of equipment.</p></div></div>
+              </div>
+              <p class="diagram-key-note">Names appear inside their symbols. A numbered circle at a task's upper left shows its stable reference, t1…tn. A separate small open circle at the upper right marks an optional element. Task references identify elements; temporal relations express order. <strong>play</strong> binds the persona to the selected role.</p>
+            </div>
+          </details>
+        </div>
+        <div class="canvas-frame" tabindex="0" role="region" aria-label="i* model canvas" aria-describedby="canvasHelp"><div id="modelCanvas" class="model-canvas"></div><div id="emptyState" class="canvas-empty"><div class="empty-graphic" aria-hidden="true"><span></span><i></i><span></span></div><h3>See your i* model here</h3><p>Import a model, then add the persona you want to explore.</p></div></div>
+        <div class="viewer-footer"><span id="resultMessage">The imported model provides the structure for contextualization.</span><span id="busyStatus" role="status" aria-live="polite"></span></div>
+      </div>
+    </section>
+  </main>
+  <script src="/vendor/pistar/lib/jquery.min.js"></script><script src="/vendor/pistar/lib/lodash.min.js"></script><script src="/vendor/pistar/lib/backbone-min.js"></script><script src="/vendor/pistar/lib/joint.min.js"></script><script src="/vendor/pistar/defaultShapes.js"></script><script src="/vendor/pistar/shapes.js"></script><script src="/istar-routing.js?v={{FRONTEND_REVISION}}"></script><script src="/istar-viewer.js?v={{FRONTEND_REVISION}}"></script><script src="/app.js?v={{FRONTEND_REVISION}}"></script>
+</body>
+</html>

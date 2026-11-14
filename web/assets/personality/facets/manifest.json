@@ -1,0 +1,99 @@
+{
+  "name": "PATPREF personality faces and gestures",
+  "source": "Original code-native SVG illustrations created for PATPREF",
+  "created": "2026-10-30",
+  "viewBox": "0 0 24 24",
+  "stroke_width": 2,
+  "assets": [
+    {
+      "name": "sociability",
+      "filename": "sociability.svg",
+      "sha256": "4c9cb12fedf23434dd0e06878639b34e5c9da5ef7ad0ce136bc1ef20cc37f524",
+      "bytes": 371
+    },
+    {
+      "name": "assertiveness",
+      "filename": "assertiveness.svg",
+      "sha256": "03b2c58b573b6fa636db76cef05344529578557cbb10dbcbf52912ce77b2eb9f",
+      "bytes": 324
+    },
+    {
+      "name": "energy-level",
+      "filename": "energy-level.svg",
+      "sha256": "cee04dd9b6186d9eefe613eaae1a71e35d3332694ac935e71be0078d2e350e95",
+      "bytes": 324
+    },
+    {
+      "name": "compassion",
+      "filename": "compassion.svg",
+      "sha256": "91cbe34f270fbc844d607e37880679b16c86325be8dce7e46dc73ac62a2ed860",
+      "bytes": 374
+    },
+    {
+      "name": "respectfulness",
+      "filename": "respectfulness.svg",
+      "sha256": "a6f1e6b9f5df02da955dfe904f7eb4d4cb58de116032b36e53fa35ba6a38c468",
+      "bytes": 363
+    },
+    {
+      "name": "trust",
+      "filename": "trust.svg",
+      "sha256": "4337720028d8dc642f42e81846688978aacf7fb0351cc038a5c109f5d8846310",
+      "bytes": 359
+    },
+    {
+      "name": "organization",
+      "filename": "organization.svg",
+      "sha256": "9dc55c26532bbe51be271fa9f25c6274464c041f838bb411c96506750a3329aa",
+      "bytes": 319
+    },
+    {
+      "name": "productiveness",
+      "filename": "productiveness.svg",
+      "sha256": "24505089adf9aa5675a223fddc21289c92302493e12650391a7536de77ccb100",
+      "bytes": 324
+    },
+    {
+      "name": "responsibility",
+      "filename": "responsibility.svg",
+      "sha256": "2a7306c8e37c047b6332f3b34f7f972d569af818cb6582470c4b82f9d9cfdd53",
+      "bytes": 313
+    },
+    {
+      "name": "anxiety",
+      "filename": "anxiety.svg",
+      "sha256": "4b53fb3e1c507a8dacda6008cfe6fcd89c53ffab204722bb1256a58c0fed5801",
+      "bytes": 449
+    },
+    {
+      "name": "depression",
+      "filename": "depression.svg",
+      "sha256": "71ef0e089be0a493a9d877f5639e874fe726c8966a7db38c07eecf3fb2e3ed76",
+      "bytes": 314
+    },
+    {
+      "name": "emotional-volatility",
+      "filename": "emotional-volatility.svg",
+      "sha256": "51000e5880eb9903eeef10f5358f2c931f57c7e1d246e5ae9991b25d49d039c5",
+      "bytes": 354
+    },
+    {
+      "name": "intellectual-curiosity",
+      "filename": "intellectual-curiosity.svg",
+      "sha256": "9db70250245d92df2c4d84af6a4a854ed560f9a988db524bd2aaeb38b0f21c88",
+      "bytes": 458
+    },
+    {
+      "name": "aesthetic-sensitivity",
+      "filename": "aesthetic-sensitivity.svg",
+      "sha256": "29f2a85056eb09b7e1205d5a959495e287666e346b800f0d9454f7a4958ebd48",
+      "bytes": 347
+    },
+    {
+      "name": "creative-imagination",
+      "filename": "creative-imagination.svg",
+      "sha256": "276a2a95dfb5d35302b16597f95d9b8799ecfc2f1bbe3fa3fcff29c35495fee3",
+      "bytes": 508
+    }
+  ]
+}
