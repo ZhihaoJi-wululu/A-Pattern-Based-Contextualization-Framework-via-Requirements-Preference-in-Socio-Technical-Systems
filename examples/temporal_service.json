@@ -1,0 +1,828 @@
+{
+  "id": "temporal_service",
+  "label": "Temporal maintenance: five paper steps, manual weights and ordering",
+  "name": "Temporal maintenance and preference evaluation",
+  "view": {
+    "default_phase": "all"
+  },
+  "model": {
+    "id": "Temporal_Maintenance_Paper_Demo",
+    "version": "1",
+    "roles": {
+      "operator": "Maintenance Operator",
+      "owner": "Service Owner"
+    },
+    "root": "maintenance",
+    "nodes": {
+      "maintenance": {
+        "id": "maintenance",
+        "label": "Maintenance Safely Completed",
+        "kind": "goal",
+        "role": "operator",
+        "optional": false
+      },
+      "package": {
+        "id": "package",
+        "label": "Verified Package Obtained",
+        "kind": "goal",
+        "role": "operator",
+        "optional": false
+      },
+      "download": {
+        "id": "download",
+        "label": "Use Approved Verified Download",
+        "kind": "task",
+        "role": "operator",
+        "optional": false
+      },
+      "media": {
+        "id": "media",
+        "label": "Use Approved Verified Offline Media",
+        "kind": "task",
+        "role": "operator",
+        "optional": false
+      },
+      "backup": {
+        "id": "backup",
+        "label": "Create Verified Recovery Backup",
+        "kind": "task",
+        "role": "operator",
+        "optional": false
+      },
+      "deploy": {
+        "id": "deploy",
+        "label": "Deploy Verified Package",
+        "kind": "task",
+        "role": "operator",
+        "optional": false
+      },
+      "notify": {
+        "id": "notify",
+        "label": "Send Optional Service Status Update",
+        "kind": "task",
+        "role": "operator",
+        "optional": true
+      },
+      "q_online": {
+        "id": "q_online",
+        "label": "Online Delivery Preferred",
+        "kind": "softgoal",
+        "role": "owner",
+        "optional": false
+      },
+      "q_offline": {
+        "id": "q_offline",
+        "label": "Offline Media Preferred",
+        "kind": "softgoal",
+        "role": "owner",
+        "optional": false
+      }
+    },
+    "refinements": [
+      {
+        "parent": "maintenance",
+        "kind": "AND",
+        "children": [
+          "package",
+          "backup",
+          "deploy",
+          "notify"
+        ]
+      },
+      {
+        "parent": "package",
+        "kind": "OR",
+        "children": [
+          "download",
+          "media"
+        ]
+      }
+    ],
+    "hard_constraints": [
+      {
+        "source": "package",
+        "target": "deploy",
+        "type": "pre"
+      },
+      {
+        "source": "backup",
+        "target": "deploy",
+        "type": "pre"
+      },
+      {
+        "source": "deploy",
+        "target": "backup",
+        "type": "npr"
+      },
+      {
+        "source": "deploy",
+        "target": "package",
+        "type": "npr"
+      }
+    ],
+    "contributions": [
+      {
+        "source": "download",
+        "target": "q_online",
+        "type": "makes"
+      },
+      {
+        "source": "media",
+        "target": "q_online",
+        "type": "breaks"
+      },
+      {
+        "source": "media",
+        "target": "q_offline",
+        "type": "makes"
+      },
+      {
+        "source": "download",
+        "target": "q_offline",
+        "type": "breaks"
+      }
+    ],
+    "temporal_preferences": [
+      {
+        "id": "backup_first",
+        "label": "Back up before obtaining the package",
+        "formula": "require_before",
+        "x": "backup",
+        "y": "package"
+      },
+      {
+        "id": "package_first",
+        "label": "Obtain the package before backup",
+        "formula": "require_before",
+        "x": "package",
+        "y": "backup"
+      },
+      {
+        "id": "notify_eventually",
+        "label": "Perform the optional notification",
+        "formula": "sometime",
+        "x": "notify"
+      },
+      {
+        "id": "avoid_notify",
+        "label": "Omit the optional notification",
+        "formula": "never",
+        "x": "notify"
+      },
+      {
+        "id": "notify_after_deploy",
+        "label": "Deploy before the optional status update when both participate",
+        "formula": "precedes",
+        "x": "deploy",
+        "y": "notify"
+      }
+    ]
+  },
+  "persona": {
+    "actor_id": "operator_person",
+    "name": "Maintenance Operator (research example)",
+    "facets": [],
+    "role_ids": [
+      "operator"
+    ]
+  },
+  "context": {
+    "id": "temporal_demo",
+    "episode_id": "maintenance_1",
+    "facts": {},
+    "current_work": {}
+  },
+  "sources": {
+    "construction": {
+      "spans": {
+        "scope": "Research construction for demonstrating the paper translation and metric; these task alternatives and temporal tradeoffs are explicitly modeled assumptions."
+      }
+    }
+  },
+  "concerns": {},
+  "candidate_bundle": null,
+  "preference_profile": {
+    "weights": {}
+  },
+  "manual_weight_profiles": [
+    {
+      "id": "backup_online_notify",
+      "label": "Back up first; online package; notify after deployment",
+      "weights": {
+        "q_online": 1,
+        "backup_first": 0.9,
+        "notify_eventually": 0.6,
+        "notify_after_deploy": 0.8
+      }
+    },
+    {
+      "id": "package_offline_omit",
+      "label": "Obtain package first; offline media; omit notification",
+      "weights": {
+        "q_offline": 1,
+        "package_first": 0.9,
+        "avoid_notify": 0.6
+      }
+    }
+  ],
+  "witnesses": [
+    {
+      "id": "native_1",
+      "sequence": [
+        "download",
+        "backup",
+        "deploy",
+        "notify"
+      ],
+      "normalized_sequence": [
+        "download",
+        "backup",
+        "deploy",
+        "notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_2",
+      "sequence": [
+        "download",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "download",
+        "backup",
+        "deploy",
+        "__skip_notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_3",
+      "sequence": [
+        "download",
+        "backup",
+        "notify",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "download",
+        "backup",
+        "notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_4",
+      "sequence": [
+        "download",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "download",
+        "backup",
+        "__skip_notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_5",
+      "sequence": [
+        "download",
+        "notify",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "download",
+        "notify",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_6",
+      "sequence": [
+        "download",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "download",
+        "__skip_notify",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_7",
+      "sequence": [
+        "media",
+        "backup",
+        "deploy",
+        "notify"
+      ],
+      "normalized_sequence": [
+        "media",
+        "backup",
+        "deploy",
+        "notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_8",
+      "sequence": [
+        "media",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "media",
+        "backup",
+        "deploy",
+        "__skip_notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_9",
+      "sequence": [
+        "media",
+        "backup",
+        "notify",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "media",
+        "backup",
+        "notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_10",
+      "sequence": [
+        "media",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "media",
+        "backup",
+        "__skip_notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_11",
+      "sequence": [
+        "media",
+        "notify",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "media",
+        "notify",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_12",
+      "sequence": [
+        "media",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "media",
+        "__skip_notify",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_13",
+      "sequence": [
+        "backup",
+        "download",
+        "deploy",
+        "notify"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "download",
+        "deploy",
+        "notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_14",
+      "sequence": [
+        "backup",
+        "download",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "download",
+        "deploy",
+        "__skip_notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_15",
+      "sequence": [
+        "backup",
+        "download",
+        "notify",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "download",
+        "notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_16",
+      "sequence": [
+        "backup",
+        "download",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "download",
+        "__skip_notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_17",
+      "sequence": [
+        "backup",
+        "media",
+        "deploy",
+        "notify"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "media",
+        "deploy",
+        "notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_18",
+      "sequence": [
+        "backup",
+        "media",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "media",
+        "deploy",
+        "__skip_notify"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_19",
+      "sequence": [
+        "backup",
+        "media",
+        "notify",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "media",
+        "notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_20",
+      "sequence": [
+        "backup",
+        "media",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "media",
+        "__skip_notify",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_21",
+      "sequence": [
+        "backup",
+        "notify",
+        "download",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "notify",
+        "download",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_22",
+      "sequence": [
+        "backup",
+        "notify",
+        "media",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "notify",
+        "media",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_23",
+      "sequence": [
+        "backup",
+        "download",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "__skip_notify",
+        "download",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_24",
+      "sequence": [
+        "backup",
+        "media",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "backup",
+        "__skip_notify",
+        "media",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_25",
+      "sequence": [
+        "notify",
+        "download",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "notify",
+        "download",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_26",
+      "sequence": [
+        "notify",
+        "media",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "notify",
+        "media",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_27",
+      "sequence": [
+        "notify",
+        "backup",
+        "download",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "notify",
+        "backup",
+        "download",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_28",
+      "sequence": [
+        "notify",
+        "backup",
+        "media",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "notify",
+        "backup",
+        "media",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_29",
+      "sequence": [
+        "download",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "__skip_notify",
+        "download",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_30",
+      "sequence": [
+        "media",
+        "backup",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "__skip_notify",
+        "media",
+        "backup",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_31",
+      "sequence": [
+        "backup",
+        "download",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "__skip_notify",
+        "backup",
+        "download",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    },
+    {
+      "id": "native_32",
+      "sequence": [
+        "backup",
+        "media",
+        "deploy"
+      ],
+      "normalized_sequence": [
+        "__skip_notify",
+        "backup",
+        "media",
+        "deploy"
+      ],
+      "provenance": {
+        "engine": "original-SHOP2",
+        "shop2_revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f"
+      }
+    }
+  ],
+  "witness_source": {
+    "engine": "original-SHOP2",
+    "search_complete": true,
+    "normalized_plans": 32,
+    "description": "Actual SHOP2 output saved as finite reproducible witnesses; ranking these imported records does not itself perform a new complete search."
+  }
+}

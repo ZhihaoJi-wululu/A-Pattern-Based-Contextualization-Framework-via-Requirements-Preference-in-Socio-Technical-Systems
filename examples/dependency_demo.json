@@ -1,0 +1,240 @@
+{
+  "id": "dependency_demo",
+  "name": "Actor Dependencies",
+  "label": "Two roles, four typed dependencies and an executable service model",
+  "model": {
+    "id": "Dependency_Service_v1",
+    "version": "1",
+    "root": "service",
+    "roles": {
+      "coordinator": {
+        "label": "Service Coordinator",
+        "type": "role"
+      },
+      "advisor": {
+        "label": "Support Advisor",
+        "type": "role"
+      }
+    },
+    "nodes": {
+      "service": {
+        "kind": "goal",
+        "label": "Service Request Resolved"
+      },
+      "handling": {
+        "kind": "goal",
+        "label": "Request Handled",
+        "role": "coordinator"
+      },
+      "channel": {
+        "kind": "goal",
+        "label": "Consultation Received",
+        "role": "coordinator"
+      },
+      "live": {
+        "kind": "task",
+        "label": "Join Approved Live Consultation",
+        "role": "coordinator"
+      },
+      "guide": {
+        "kind": "task",
+        "label": "Read Reviewed Written Guide",
+        "role": "coordinator"
+      },
+      "close": {
+        "kind": "task",
+        "label": "Close Support Request",
+        "role": "coordinator"
+      },
+      "support": {
+        "kind": "goal",
+        "label": "Advice Provided",
+        "role": "advisor"
+      },
+      "review": {
+        "kind": "task",
+        "label": "Review Request Details",
+        "role": "advisor"
+      },
+      "reply": {
+        "kind": "task",
+        "label": "Provide Reviewed Advice",
+        "role": "advisor"
+      },
+      "guide_resource": {
+        "kind": "resource",
+        "label": "Reviewed Support Guide",
+        "role": "advisor"
+      },
+      "quality": {
+        "kind": "softgoal",
+        "label": "Accurate Advice",
+        "role": "advisor"
+      }
+    },
+    "refinements": [
+      {
+        "parent": "service",
+        "kind": "AND",
+        "children": [
+          "handling",
+          "support"
+        ]
+      },
+      {
+        "parent": "handling",
+        "kind": "AND",
+        "children": [
+          "channel",
+          "close"
+        ]
+      },
+      {
+        "parent": "channel",
+        "kind": "OR",
+        "children": [
+          "live",
+          "guide"
+        ]
+      },
+      {
+        "parent": "support",
+        "kind": "AND",
+        "children": [
+          "review",
+          "reply"
+        ]
+      }
+    ],
+    "hard_constraints": [
+      {
+        "source": "review",
+        "target": "reply",
+        "type": "pre"
+      },
+      {
+        "source": "reply",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "channel",
+        "target": "close",
+        "type": "pre"
+      }
+    ],
+    "contributions": [
+      {
+        "source": "reply",
+        "target": "quality",
+        "type": "makes"
+      }
+    ],
+    "dependencies": [
+      {
+        "id": "D_advice",
+        "depender": "coordinator",
+        "dependee": "advisor",
+        "dependum": {
+          "kind": "goal",
+          "label": "Request Clarified"
+        },
+        "depender_node": "close",
+        "dependee_node": "support"
+      },
+      {
+        "id": "D_consult",
+        "depender": "coordinator",
+        "dependee": "advisor",
+        "dependum": {
+          "kind": "task",
+          "label": "Provide Consultation"
+        },
+        "depender_node": "live",
+        "dependee_node": "reply"
+      },
+      {
+        "id": "D_guide",
+        "depender": "coordinator",
+        "dependee": "advisor",
+        "dependum": {
+          "kind": "resource",
+          "label": "Reviewed Guide"
+        },
+        "depender_node": "guide",
+        "dependee_node": "guide_resource"
+      },
+      {
+        "id": "D_accuracy",
+        "depender": "coordinator",
+        "dependee": "advisor",
+        "dependum": {
+          "kind": "quality",
+          "label": "Accurate Advice"
+        },
+        "dependee_node": "quality"
+      }
+    ],
+    "temporal_preferences": [
+      {
+        "id": "P_review",
+        "formula": "require_before",
+        "x": "review",
+        "y": "reply",
+        "label": "Review Before Reply"
+      }
+    ]
+  },
+  "persona": {
+    "actor_id": "A_Coordinator",
+    "name": "Coordinator",
+    "description": "Constructed coordinator persona for inspecting actor dependencies.",
+    "role_ids": [
+      "coordinator"
+    ],
+    "facets": [],
+    "evidence": {
+      "source_id": "demo",
+      "span_id": "persona"
+    }
+  },
+  "context": {
+    "id": "C_dependency_demo",
+    "episode_id": "E_demo",
+    "facts": {},
+    "current_work": {}
+  },
+  "sources": {
+    "demo": {
+      "kind": "constructed_example",
+      "label": "Dependency demonstration assumptions",
+      "spans": {
+        "persona": "Coordinator acts as the service coordinator. No personality facet is inferred from this example.",
+        "model": "The coordinator obtains advice and a reviewed guide from a support advisor. The advisor reviews the request before replying; closure requires both the consultation and the reply."
+      }
+    }
+  },
+  "concerns": {},
+  "witnesses": [
+    {
+      "id": "W_live",
+      "sequence": [
+        "review",
+        "reply",
+        "live",
+        "close"
+      ]
+    },
+    {
+      "id": "W_guide",
+      "sequence": [
+        "review",
+        "reply",
+        "guide",
+        "close"
+      ]
+    }
+  ],
+  "candidate_bundle": null,
+  "modeling_note": "The unowned root is execution coordination. Actor-local refinements remain within role scopes. Dependencies describe reliance and do not themselves enforce task ordering."
+}

@@ -1,0 +1,1463 @@
+{
+  "id": "comprehensive_archive",
+  "name": "Community archive · complete modeling example",
+  "label": "Seven grounded choices, all native modeling elements and four dependency kinds",
+  "model": {
+    "id": "Community_Archive_Full_v1",
+    "version": "1",
+    "root": "archive",
+    "nodes": {
+      "archive": {
+        "id": "archive",
+        "label": "Community Archive Delivered",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "coordination": {
+        "id": "coordination",
+        "label": "Archive Work Coordinated",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "intake": {
+        "id": "intake",
+        "label": "Intake Agreed",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "intake_call": {
+        "id": "intake_call",
+        "label": "Discuss Intake Live",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "intake_guide": {
+        "id": "intake_guide",
+        "label": "Read Intake Guide",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "schedule": {
+        "id": "schedule",
+        "label": "Scan Window Agreed",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "express_window": {
+        "id": "express_window",
+        "label": "Propose Own Window",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "accept_window": {
+        "id": "accept_window",
+        "label": "Accept Offered Window",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "catalogue": {
+        "id": "catalogue",
+        "label": "Source Records Filed",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "index_records": {
+        "id": "index_records",
+        "label": "Index Source Records",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "retain_records": {
+        "id": "retain_records",
+        "label": "Keep Received Order",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "digest": {
+        "id": "digest",
+        "label": "Public Digest Checked",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "cooperate_digest": {
+        "id": "cooperate_digest",
+        "label": "Check Digest Together",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "check_digest": {
+        "id": "check_digest",
+        "label": "Check Digest Alone",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "handover": {
+        "id": "handover",
+        "label": "Handover Understood",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "handover_call": {
+        "id": "handover_call",
+        "label": "Discuss Handover Live",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "handover_guide": {
+        "id": "handover_guide",
+        "label": "Read Handover Guide",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "evidence": {
+        "id": "evidence",
+        "label": "Completion Evidence Filed",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "index_evidence": {
+        "id": "index_evidence",
+        "label": "Index Completion Evidence",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "append_evidence": {
+        "id": "append_evidence",
+        "label": "Append Evidence by Date",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "assistance": {
+        "id": "assistance",
+        "label": "Colleague Supported",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "guided_assistance": {
+        "id": "guided_assistance",
+        "label": "Give Step-by-step Help",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "standard_sheet": {
+        "id": "standard_sheet",
+        "label": "Send Standard Help Sheet",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "close": {
+        "id": "close",
+        "label": "Close Archive Project",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "update": {
+        "id": "update",
+        "label": "Send Optional Status Note",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": true
+      },
+      "discard_draft": {
+        "id": "discard_draft",
+        "label": "Discard Redundant Draft",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": true
+      },
+      "independent_review": {
+        "id": "independent_review",
+        "label": "Archive Independently Reviewed",
+        "kind": "goal",
+        "role": "archivist",
+        "optional": false
+      },
+      "review": {
+        "id": "review",
+        "label": "Review Archive Integrity",
+        "kind": "task",
+        "role": "archivist",
+        "optional": false
+      },
+      "guide_resource": {
+        "id": "guide_resource",
+        "label": "Reviewed Archive Guide",
+        "kind": "resource",
+        "role": "archivist",
+        "optional": false
+      },
+      "review_quality": {
+        "id": "review_quality",
+        "label": "Review Reliability",
+        "kind": "softgoal",
+        "role": "archivist",
+        "optional": false
+      },
+      "publication": {
+        "id": "publication",
+        "label": "Publication Authorized",
+        "kind": "goal",
+        "role": "council",
+        "optional": false
+      },
+      "authorize": {
+        "id": "authorize",
+        "label": "Authorize Public Release",
+        "kind": "task",
+        "role": "council",
+        "optional": false
+      },
+      "records_quality": {
+        "id": "records_quality",
+        "label": "Ease of Record Retrieval",
+        "kind": "softgoal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "evidence_quality": {
+        "id": "evidence_quality",
+        "label": "Evidence Auditability",
+        "kind": "softgoal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "communication_quality": {
+        "id": "communication_quality",
+        "label": "Reciprocal Communication",
+        "kind": "softgoal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "assistance_quality": {
+        "id": "assistance_quality",
+        "label": "Empathetic Assistance",
+        "kind": "softgoal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "traceability": {
+        "id": "traceability",
+        "label": "Archive Traceability",
+        "kind": "hard_preference",
+        "role": "coordinator",
+        "optional": false
+      }
+    },
+    "roles": {
+      "coordinator": {
+        "label": "Archive Coordinator",
+        "type": "role"
+      },
+      "archivist": {
+        "label": "Independent Archivist",
+        "type": "agent"
+      },
+      "council": {
+        "label": "Heritage Council",
+        "type": "actor"
+      }
+    },
+    "refinements": [
+      {
+        "parent": "archive",
+        "kind": "AND",
+        "children": [
+          "coordination",
+          "independent_review",
+          "publication"
+        ]
+      },
+      {
+        "parent": "coordination",
+        "kind": "AND",
+        "children": [
+          "intake",
+          "schedule",
+          "catalogue",
+          "digest",
+          "handover",
+          "evidence",
+          "assistance",
+          "close",
+          "update",
+          "discard_draft"
+        ]
+      },
+      {
+        "parent": "intake",
+        "kind": "OR",
+        "children": [
+          "intake_call",
+          "intake_guide"
+        ]
+      },
+      {
+        "parent": "schedule",
+        "kind": "OR",
+        "children": [
+          "express_window",
+          "accept_window"
+        ]
+      },
+      {
+        "parent": "catalogue",
+        "kind": "OR",
+        "children": [
+          "index_records",
+          "retain_records"
+        ]
+      },
+      {
+        "parent": "digest",
+        "kind": "OR",
+        "children": [
+          "cooperate_digest",
+          "check_digest"
+        ]
+      },
+      {
+        "parent": "handover",
+        "kind": "OR",
+        "children": [
+          "handover_call",
+          "handover_guide"
+        ]
+      },
+      {
+        "parent": "evidence",
+        "kind": "OR",
+        "children": [
+          "index_evidence",
+          "append_evidence"
+        ]
+      },
+      {
+        "parent": "assistance",
+        "kind": "OR",
+        "children": [
+          "guided_assistance",
+          "standard_sheet"
+        ]
+      },
+      {
+        "parent": "independent_review",
+        "kind": "AND",
+        "children": [
+          "review"
+        ]
+      },
+      {
+        "parent": "publication",
+        "kind": "AND",
+        "children": [
+          "authorize"
+        ]
+      }
+    ],
+    "hard_constraints": [
+      {
+        "source": "intake",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "schedule",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "catalogue",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "digest",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "handover",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "evidence",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "assistance",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "review",
+        "target": "authorize",
+        "type": "pre"
+      },
+      {
+        "source": "authorize",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "close",
+        "target": "intake_call",
+        "type": "npr"
+      },
+      {
+        "source": "close",
+        "target": "intake_guide",
+        "type": "npr"
+      }
+    ],
+    "contributions": [
+      {
+        "source": "index_records",
+        "target": "records_quality",
+        "type": "makes"
+      },
+      {
+        "source": "retain_records",
+        "target": "records_quality",
+        "type": "breaks"
+      },
+      {
+        "source": "index_evidence",
+        "target": "evidence_quality",
+        "type": "makes"
+      },
+      {
+        "source": "append_evidence",
+        "target": "evidence_quality",
+        "type": "breaks"
+      },
+      {
+        "source": "intake_call",
+        "target": "communication_quality",
+        "type": "makes"
+      },
+      {
+        "source": "intake_guide",
+        "target": "communication_quality",
+        "type": "breaks"
+      },
+      {
+        "source": "handover_call",
+        "target": "communication_quality",
+        "type": "makes"
+      },
+      {
+        "source": "handover_guide",
+        "target": "communication_quality",
+        "type": "breaks"
+      },
+      {
+        "source": "guided_assistance",
+        "target": "assistance_quality",
+        "type": "makes"
+      },
+      {
+        "source": "standard_sheet",
+        "target": "assistance_quality",
+        "type": "breaks"
+      },
+      {
+        "source": "index_records",
+        "target": "traceability",
+        "type": "makes"
+      },
+      {
+        "source": "retain_records",
+        "target": "traceability",
+        "type": "breaks"
+      },
+      {
+        "source": "index_evidence",
+        "target": "traceability",
+        "type": "makes"
+      },
+      {
+        "source": "append_evidence",
+        "target": "traceability",
+        "type": "breaks"
+      },
+      {
+        "source": "review",
+        "target": "review_quality",
+        "type": "makes"
+      }
+    ],
+    "dependencies": [
+      {
+        "id": "D_release",
+        "depender": "coordinator",
+        "dependee": "council",
+        "dependum": {
+          "id": "release_dependum",
+          "kind": "goal",
+          "label": "Public Release Approved"
+        },
+        "depender_node": "close",
+        "dependee_node": "publication"
+      },
+      {
+        "id": "D_review",
+        "depender": "coordinator",
+        "dependee": "archivist",
+        "dependum": {
+          "id": "review_dependum",
+          "kind": "task",
+          "label": "Check Archive Integrity"
+        },
+        "depender_node": "cooperate_digest",
+        "dependee_node": "review"
+      },
+      {
+        "id": "D_guide",
+        "depender": "coordinator",
+        "dependee": "archivist",
+        "dependum": {
+          "id": "guide_dependum",
+          "kind": "resource",
+          "label": "Reviewed Archive Guide"
+        },
+        "depender_node": "handover_guide",
+        "dependee_node": "guide_resource"
+      },
+      {
+        "id": "D_reliability",
+        "depender": "council",
+        "dependee": "archivist",
+        "dependum": {
+          "id": "quality_dependum",
+          "kind": "quality",
+          "label": "Reliable Review"
+        },
+        "depender_node": "authorize",
+        "dependee_node": "review_quality"
+      }
+    ],
+    "temporal_preferences": [
+      {
+        "id": "B_status",
+        "formula": "sometime",
+        "x": "update"
+      },
+      {
+        "id": "B_keep_draft",
+        "formula": "never",
+        "x": "discard_draft"
+      },
+      {
+        "id": "B_intake_first",
+        "formula": "precedes",
+        "x": "intake",
+        "y": "catalogue"
+      },
+      {
+        "id": "B_review_before_release",
+        "formula": "require_before",
+        "x": "review",
+        "y": "authorize"
+      },
+      {
+        "id": "B_close_after_release",
+        "formula": "require_after",
+        "x": "close",
+        "y": "authorize"
+      },
+      {
+        "id": "B_no_schedule_before_intake",
+        "formula": "never_before",
+        "x": "schedule",
+        "y": "intake"
+      },
+      {
+        "id": "B_no_release_after_close",
+        "formula": "never_after",
+        "x": "authorize",
+        "y": "close"
+      }
+    ]
+  },
+  "persona": {
+    "actor_id": "A_Archivist",
+    "name": "Archive Persona",
+    "role_ids": [
+      "coordinator"
+    ],
+    "facets": [
+      "Sociability",
+      "Assertiveness",
+      "Compassion",
+      "Trust",
+      "Organization"
+    ],
+    "evidence": {
+      "source_id": "persona",
+      "span_id": "Archive Persona"
+    }
+  },
+  "sources": {
+    "persona": {
+      "kind": "constructed_persona",
+      "label": "Archive Persona: declared qualitative persona",
+      "spans": {
+        "Archive Persona": "Archive Persona is the Archive Coordinator for this constructed community heritage project. She enjoys reciprocal discussion and actively expresses her own position when arrangements are negotiable. She values orderly materials, generally expects good intentions within independently checked boundaries, and attends to a colleague's specific difficulties. These usual characteristics are separate from the episode conditions."
+      }
+    },
+    "episode": {
+      "kind": "constructed_context",
+      "label": "Independently declared archive episode",
+      "spans": {
+        "quality_criteria": "The project separately declares these quality aspirations: Ease of Record Retrieval, Evidence Auditability, Reciprocal Communication, Empathetic Assistance, Review Reliability and Archive Traceability. For this constructed episode, indexing source records is sufficient for the agreed retrieval quality; keeping received order fails that additional quality while still retaining every required record. Indexing completion evidence is sufficient for the agreed auditability quality; appending it by date fails that additional quality while still retaining all required evidence. Both live discussion tasks contribute to reciprocal communication; either written-only route lacks the project's additional reciprocity criterion while remaining an approved sufficient channel. The step-by-step help supplies the extra, personally responsive relief defining empathetic assistance; the standard help sheet supplies necessary service without that extra quality. The independent integrity review supplies the declared review reliability criterion. Both indexing tasks contribute positively to Archive Traceability; keeping received source-record order or appending completion evidence only by date fails the additional traceability criterion. These are project-specific evaluation criteria, distinct from whether mandatory functional goals are achieved.",
+        "archive_ownership": "The Archive Coordinator owns the overall Community Archive Delivered goal and coordinates its completion. The Independent Archivist retains responsibility for the integrity review, and the Heritage Council retains authority over public release.",
+        "intake_reciprocal_opportunity": "For intake, Archive Persona has been invited to a live discussion where she can ask questions and respond; reading the intake guide has no reciprocal interaction.",
+        "intake_approved_equivalent_channels": "The intake call and intake guide are both approved and equally sufficient for agreeing the same intake requirements.",
+        "intake_no_uninterruptible_high_duty": "No uninterruptible high-duty work prevents either party from taking part in the intake discussion.",
+        "intake_resources_available": "Both parties have enough time, current energy and work resources for the intake discussion.",
+        "C_intake": "For Intake Agreed, the independently registered outcome criterion Reciprocal Intake is met by Discuss Intake Live and is not met by Read Intake Guide.",
+        "schedule_negotiable_request": "The archive partner has requested a scan window and explicitly confirmed that this arrangement is genuinely negotiable.",
+        "schedule_own_nonmandatory_preference": "Before this request, Archive Persona explicitly stated a nonmandatory preference for a different scan window; it differs from the partner's initial arrangement.",
+        "schedule_both_responses_authorized": "Archive Persona is authorized either to express her alternative scan window or accept the initial offer; both are feasible within the same resources, mandatory work and hard deadlines.",
+        "schedule_self_expression_difference": "Propose Own Window records Archive Persona's own position in the negotiation; Accept Offered Window completes the arrangement without expressing that position.",
+        "C_schedule": "For Scan Window Agreed, the independently registered outcome criterion Own Position Expressed is met by Propose Own Window and is not met by Accept Offered Window.",
+        "catalogue_visible_disorder": "The source records are visibly scattered and Archive Persona currently perceives this disorder.",
+        "catalogue_actor_directory_standard": "Archive Persona accepts the current collection-and-date indexing standard for the source records.",
+        "catalogue_minimum_retention_satisfied": "Both source-record filing methods retain every required record and satisfy minimum retention requirements.",
+        "catalogue_organization_difference_known": "The independently registered source-record criterion establishes that indexing the source records meets the accepted standard and keeping their received order does not.",
+        "C_catalogue": "For Source Records Filed, the independently registered outcome criterion Indexed Source Records is met by Index Source Records and is not met by Keep Received Order.",
+        "digest_unfamiliar_partner": "The independent archivist offering the public-digest check is unfamiliar to Archive Persona.",
+        "digest_identity_and_permission_verified": "The independent archivist's identity, permission and communication channel have already been independently verified for the digest check.",
+        "digest_bounded_reversible_nonsensitive_cooperation": "The digest cooperation uses only a public checksum, grants no access, involves no sensitive information, has a small reversible scope and can be withdrawn.",
+        "digest_negative_cues_checked_and_absent": "Negative cues for this digest cooperation have been checked and no unexplained counterevidence remains.",
+        "digest_independent_alternative_valid": "Checking the same digest independently using the approved guide is a valid and equally sufficient way to complete the digest requirement.",
+        "digest_cooperation_optional": "Archive Persona may decline the offered digest cooperation; selecting cooperation is optional even though completing the digest check is required.",
+        "C_digest": "For Public Digest Checked, the independently registered outcome criterion Bounded Cooperation is met by Check Digest Together and is not met by Check Digest Alone.",
+        "handover_reciprocal_opportunity": "For handover, Archive Persona has an actual invitation to reciprocal live Q&A where both parties ask questions and respond; the written handover guide provides no reciprocal participation.",
+        "handover_approved_equivalent_channels": "The handover Q&A and written handover guide are approved and equally sufficient for understanding the same completed archive.",
+        "handover_no_uninterruptible_high_duty": "No uninterruptible high-duty task prevents either party from taking part in the handover Q&A.",
+        "handover_resources_available": "Both parties have enough time, current energy and work resources for the handover Q&A.",
+        "C_handover": "For Handover Understood, the independently registered outcome criterion Reciprocal Handover is met by Discuss Handover Live and is not met by Read Handover Guide.",
+        "evidence_visible_disorder": "The newly produced completion evidence is visibly disordered, independently of the source records, and Archive Persona currently perceives this disorder.",
+        "evidence_actor_directory_standard": "For completion evidence, Archive Persona accepts the specified batch-and-outcome directory standard.",
+        "evidence_minimum_retention_satisfied": "Indexing completion evidence and appending it by date both retain all required evidence and meet minimum retention requirements.",
+        "evidence_organization_difference_known": "The independently registered completion-evidence criterion establishes that indexing meets the accepted directory standard and appending by date does not.",
+        "C_evidence": "For Completion Evidence Filed, the independently registered outcome criterion Indexed Completion Evidence is met by Index Completion Evidence and is not met by Append Evidence by Date.",
+        "assistance_specific_difficulty_known": "Archive Persona perceives her colleague's independently verified, specific difficulty finding the correct archive batch and interpreting its index.",
+        "assistance_relief_effect_known": "The independently registered assistance criterion establishes that step-by-step help gives additional relief of that specific difficulty; the sufficient standard help sheet does not give the same extra relief.",
+        "assistance_minimum_service_guaranteed": "Both assistance routes guarantee all necessary service and access to the complete, usable archive.",
+        "assistance_voluntary_extra_relief": "The extra step-by-step help is voluntary, both parties consent, Archive Persona has discretion to omit it, and omitting that extra help is legally permitted.",
+        "assistance_voluntary_cost_affordable": "The cost of the voluntary extra help is affordable within Archive Persona's current disposable time, energy and work resources.",
+        "C_assistance": "For Colleague Supported, the independently registered outcome criterion Specific Difficulty Relieved is met by Give Step-by-step Help and is not met by Send Standard Help Sheet."
+      }
+    }
+  },
+  "context": {
+    "id": "C_archive_full",
+    "episode_id": "E_archive_full",
+    "facts": {
+      "intake_reciprocal_opportunity": {
+        "id": "intake_reciprocal_opportunity",
+        "predicate": "reciprocal_opportunity",
+        "value": true,
+        "scope_ids": [
+          "intake"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "intake_reciprocal_opportunity"
+        }
+      },
+      "intake_approved_equivalent_channels": {
+        "id": "intake_approved_equivalent_channels",
+        "predicate": "approved_equivalent_channels",
+        "value": true,
+        "scope_ids": [
+          "intake"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "intake_approved_equivalent_channels"
+        }
+      },
+      "intake_no_uninterruptible_high_duty": {
+        "id": "intake_no_uninterruptible_high_duty",
+        "predicate": "no_uninterruptible_high_duty",
+        "value": true,
+        "scope_ids": [
+          "intake"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "intake_no_uninterruptible_high_duty"
+        }
+      },
+      "intake_resources_available": {
+        "id": "intake_resources_available",
+        "predicate": "resources_available",
+        "value": true,
+        "scope_ids": [
+          "intake"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "intake_resources_available"
+        }
+      },
+      "schedule_negotiable_request": {
+        "id": "schedule_negotiable_request",
+        "predicate": "negotiable_request",
+        "value": true,
+        "scope_ids": [
+          "schedule"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "schedule_negotiable_request"
+        }
+      },
+      "schedule_own_nonmandatory_preference": {
+        "id": "schedule_own_nonmandatory_preference",
+        "predicate": "own_nonmandatory_preference",
+        "value": true,
+        "scope_ids": [
+          "schedule"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "schedule_own_nonmandatory_preference"
+        }
+      },
+      "schedule_both_responses_authorized": {
+        "id": "schedule_both_responses_authorized",
+        "predicate": "both_responses_authorized",
+        "value": true,
+        "scope_ids": [
+          "schedule"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "schedule_both_responses_authorized"
+        }
+      },
+      "schedule_self_expression_difference": {
+        "id": "schedule_self_expression_difference",
+        "predicate": "self_expression_difference",
+        "value": true,
+        "scope_ids": [
+          "schedule"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "schedule_self_expression_difference"
+        }
+      },
+      "catalogue_visible_disorder": {
+        "id": "catalogue_visible_disorder",
+        "predicate": "visible_disorder",
+        "value": true,
+        "scope_ids": [
+          "catalogue"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "catalogue_visible_disorder"
+        }
+      },
+      "catalogue_actor_directory_standard": {
+        "id": "catalogue_actor_directory_standard",
+        "predicate": "actor_directory_standard",
+        "value": true,
+        "scope_ids": [
+          "catalogue"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "catalogue_actor_directory_standard"
+        }
+      },
+      "catalogue_minimum_retention_satisfied": {
+        "id": "catalogue_minimum_retention_satisfied",
+        "predicate": "minimum_retention_satisfied",
+        "value": true,
+        "scope_ids": [
+          "catalogue"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "catalogue_minimum_retention_satisfied"
+        }
+      },
+      "catalogue_organization_difference_known": {
+        "id": "catalogue_organization_difference_known",
+        "predicate": "organization_difference_known",
+        "value": true,
+        "scope_ids": [
+          "catalogue"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "catalogue_organization_difference_known"
+        }
+      },
+      "digest_unfamiliar_partner": {
+        "id": "digest_unfamiliar_partner",
+        "predicate": "unfamiliar_partner",
+        "value": true,
+        "scope_ids": [
+          "digest"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "digest_unfamiliar_partner"
+        }
+      },
+      "digest_identity_and_permission_verified": {
+        "id": "digest_identity_and_permission_verified",
+        "predicate": "identity_and_permission_verified",
+        "value": true,
+        "scope_ids": [
+          "digest"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "digest_identity_and_permission_verified"
+        }
+      },
+      "digest_bounded_reversible_nonsensitive_cooperation": {
+        "id": "digest_bounded_reversible_nonsensitive_cooperation",
+        "predicate": "bounded_reversible_nonsensitive_cooperation",
+        "value": true,
+        "scope_ids": [
+          "digest"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "digest_bounded_reversible_nonsensitive_cooperation"
+        }
+      },
+      "digest_negative_cues_checked_and_absent": {
+        "id": "digest_negative_cues_checked_and_absent",
+        "predicate": "negative_cues_checked_and_absent",
+        "value": true,
+        "scope_ids": [
+          "digest"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "digest_negative_cues_checked_and_absent"
+        }
+      },
+      "digest_independent_alternative_valid": {
+        "id": "digest_independent_alternative_valid",
+        "predicate": "independent_alternative_valid",
+        "value": true,
+        "scope_ids": [
+          "digest"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "digest_independent_alternative_valid"
+        }
+      },
+      "digest_cooperation_optional": {
+        "id": "digest_cooperation_optional",
+        "predicate": "cooperation_optional",
+        "value": true,
+        "scope_ids": [
+          "digest"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "digest_cooperation_optional"
+        }
+      },
+      "handover_reciprocal_opportunity": {
+        "id": "handover_reciprocal_opportunity",
+        "predicate": "reciprocal_opportunity",
+        "value": true,
+        "scope_ids": [
+          "handover"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "handover_reciprocal_opportunity"
+        }
+      },
+      "handover_approved_equivalent_channels": {
+        "id": "handover_approved_equivalent_channels",
+        "predicate": "approved_equivalent_channels",
+        "value": true,
+        "scope_ids": [
+          "handover"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "handover_approved_equivalent_channels"
+        }
+      },
+      "handover_no_uninterruptible_high_duty": {
+        "id": "handover_no_uninterruptible_high_duty",
+        "predicate": "no_uninterruptible_high_duty",
+        "value": true,
+        "scope_ids": [
+          "handover"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "handover_no_uninterruptible_high_duty"
+        }
+      },
+      "handover_resources_available": {
+        "id": "handover_resources_available",
+        "predicate": "resources_available",
+        "value": true,
+        "scope_ids": [
+          "handover"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "handover_resources_available"
+        }
+      },
+      "evidence_visible_disorder": {
+        "id": "evidence_visible_disorder",
+        "predicate": "visible_disorder",
+        "value": true,
+        "scope_ids": [
+          "evidence"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "evidence_visible_disorder"
+        }
+      },
+      "evidence_actor_directory_standard": {
+        "id": "evidence_actor_directory_standard",
+        "predicate": "actor_directory_standard",
+        "value": true,
+        "scope_ids": [
+          "evidence"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "evidence_actor_directory_standard"
+        }
+      },
+      "evidence_minimum_retention_satisfied": {
+        "id": "evidence_minimum_retention_satisfied",
+        "predicate": "minimum_retention_satisfied",
+        "value": true,
+        "scope_ids": [
+          "evidence"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "evidence_minimum_retention_satisfied"
+        }
+      },
+      "evidence_organization_difference_known": {
+        "id": "evidence_organization_difference_known",
+        "predicate": "organization_difference_known",
+        "value": true,
+        "scope_ids": [
+          "evidence"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "evidence_organization_difference_known"
+        }
+      },
+      "assistance_specific_difficulty_known": {
+        "id": "assistance_specific_difficulty_known",
+        "predicate": "specific_difficulty_known",
+        "value": true,
+        "scope_ids": [
+          "assistance"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "assistance_specific_difficulty_known"
+        }
+      },
+      "assistance_relief_effect_known": {
+        "id": "assistance_relief_effect_known",
+        "predicate": "relief_effect_known",
+        "value": true,
+        "scope_ids": [
+          "assistance"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "assistance_relief_effect_known"
+        }
+      },
+      "assistance_minimum_service_guaranteed": {
+        "id": "assistance_minimum_service_guaranteed",
+        "predicate": "minimum_service_guaranteed",
+        "value": true,
+        "scope_ids": [
+          "assistance"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "assistance_minimum_service_guaranteed"
+        }
+      },
+      "assistance_voluntary_extra_relief": {
+        "id": "assistance_voluntary_extra_relief",
+        "predicate": "voluntary_extra_relief",
+        "value": true,
+        "scope_ids": [
+          "assistance"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "assistance_voluntary_extra_relief"
+        }
+      },
+      "assistance_voluntary_cost_affordable": {
+        "id": "assistance_voluntary_cost_affordable",
+        "predicate": "voluntary_cost_affordable",
+        "value": true,
+        "scope_ids": [
+          "assistance"
+        ],
+        "evidence": {
+          "source_id": "episode",
+          "span_id": "assistance_voluntary_cost_affordable"
+        }
+      }
+    },
+    "current_work": {}
+  },
+  "concerns": {
+    "C_intake": {
+      "label": "Reciprocal Intake",
+      "ast": {
+        "attains": "intake_call"
+      },
+      "evidence": {
+        "source_id": "episode",
+        "span_id": "C_intake"
+      },
+      "status": "pre-registered constructed outcome criterion"
+    },
+    "C_schedule": {
+      "label": "Own Position Expressed",
+      "ast": {
+        "attains": "express_window"
+      },
+      "evidence": {
+        "source_id": "episode",
+        "span_id": "C_schedule"
+      },
+      "status": "pre-registered constructed outcome criterion"
+    },
+    "C_catalogue": {
+      "label": "Indexed Source Records",
+      "ast": {
+        "attains": "index_records"
+      },
+      "evidence": {
+        "source_id": "episode",
+        "span_id": "C_catalogue"
+      },
+      "status": "pre-registered constructed outcome criterion"
+    },
+    "C_digest": {
+      "label": "Bounded Cooperation",
+      "ast": {
+        "attains": "cooperate_digest"
+      },
+      "evidence": {
+        "source_id": "episode",
+        "span_id": "C_digest"
+      },
+      "status": "pre-registered constructed outcome criterion"
+    },
+    "C_handover": {
+      "label": "Reciprocal Handover",
+      "ast": {
+        "attains": "handover_call"
+      },
+      "evidence": {
+        "source_id": "episode",
+        "span_id": "C_handover"
+      },
+      "status": "pre-registered constructed outcome criterion"
+    },
+    "C_evidence": {
+      "label": "Indexed Completion Evidence",
+      "ast": {
+        "attains": "index_evidence"
+      },
+      "evidence": {
+        "source_id": "episode",
+        "span_id": "C_evidence"
+      },
+      "status": "pre-registered constructed outcome criterion"
+    },
+    "C_assistance": {
+      "label": "Specific Difficulty Relieved",
+      "ast": {
+        "attains": "guided_assistance"
+      },
+      "evidence": {
+        "source_id": "episode",
+        "span_id": "C_assistance"
+      },
+      "status": "pre-registered constructed outcome criterion"
+    }
+  },
+  "witnesses": [
+    {
+      "id": "W_baseline",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_call",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_change_intake",
+      "sequence": [
+        "intake_guide",
+        "express_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_call",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_change_schedule",
+      "sequence": [
+        "intake_call",
+        "accept_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_call",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_change_catalogue",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "retain_records",
+        "cooperate_digest",
+        "handover_call",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_change_digest",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "index_records",
+        "check_digest",
+        "handover_call",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_change_handover",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_guide",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_change_evidence",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_call",
+        "append_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_change_assistance",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_call",
+        "index_evidence",
+        "standard_sheet",
+        "review",
+        "authorize",
+        "close"
+      ]
+    },
+    {
+      "id": "W_optional_status",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_call",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "update",
+        "close"
+      ]
+    },
+    {
+      "id": "W_optional_draft",
+      "sequence": [
+        "intake_call",
+        "express_window",
+        "index_records",
+        "cooperate_digest",
+        "handover_call",
+        "index_evidence",
+        "guided_assistance",
+        "review",
+        "authorize",
+        "discard_draft",
+        "close"
+      ]
+    }
+  ],
+  "candidate_bundle": {
+    "schema_version": "apate.candidates.v1",
+    "model_hash": "2f376d27d731bc24446379d05432872a4257f9bdd674dac418f0dbf202232f08",
+    "provider": {
+      "kind": "constructed-reference",
+      "model_reported": "authored-reference",
+      "snapshot": null
+    },
+    "actor_id": "A_Archivist",
+    "role_id": "coordinator",
+    "context_id": "C_archive_full",
+    "candidates": [
+      {
+        "id": "P1",
+        "pattern_id": "AP-SOC-R1",
+        "rule_id": "AP-SOC-R1",
+        "kind": "choice",
+        "source": "intake_call",
+        "target": "intake_guide",
+        "concern_id": "C_intake",
+        "fact_bindings": {
+          "reciprocal_opportunity": "intake_reciprocal_opportunity",
+          "approved_equivalent_channels": "intake_approved_equivalent_channels",
+          "no_uninterruptible_high_duty": "intake_no_uninterruptible_high_duty",
+          "resources_available": "intake_resources_available"
+        },
+        "witness_pairs": [
+          {
+            "preferred": "W_baseline",
+            "other": "W_change_intake"
+          }
+        ]
+      },
+      {
+        "id": "P2",
+        "pattern_id": "AP-ASSERT-R1",
+        "rule_id": "AP-ASSERT-R1",
+        "kind": "choice",
+        "source": "express_window",
+        "target": "accept_window",
+        "concern_id": "C_schedule",
+        "fact_bindings": {
+          "negotiable_request": "schedule_negotiable_request",
+          "own_nonmandatory_preference": "schedule_own_nonmandatory_preference",
+          "both_responses_authorized": "schedule_both_responses_authorized",
+          "self_expression_difference": "schedule_self_expression_difference"
+        },
+        "witness_pairs": [
+          {
+            "preferred": "W_baseline",
+            "other": "W_change_schedule"
+          }
+        ]
+      },
+      {
+        "id": "P3",
+        "pattern_id": "AP-RD-ORG-01",
+        "rule_id": "AP-RD-ORG-01",
+        "kind": "choice",
+        "source": "index_records",
+        "target": "retain_records",
+        "concern_id": "C_catalogue",
+        "fact_bindings": {
+          "visible_disorder": "catalogue_visible_disorder",
+          "actor_directory_standard": "catalogue_actor_directory_standard",
+          "minimum_retention_satisfied": "catalogue_minimum_retention_satisfied",
+          "organization_difference_known": "catalogue_organization_difference_known"
+        },
+        "witness_pairs": [
+          {
+            "preferred": "W_baseline",
+            "other": "W_change_catalogue"
+          }
+        ]
+      },
+      {
+        "id": "P4",
+        "pattern_id": "AP-TRUST-R1",
+        "rule_id": "AP-TRUST-R1",
+        "kind": "choice",
+        "source": "cooperate_digest",
+        "target": "check_digest",
+        "concern_id": "C_digest",
+        "fact_bindings": {
+          "unfamiliar_partner": "digest_unfamiliar_partner",
+          "identity_and_permission_verified": "digest_identity_and_permission_verified",
+          "bounded_reversible_nonsensitive_cooperation": "digest_bounded_reversible_nonsensitive_cooperation",
+          "negative_cues_checked_and_absent": "digest_negative_cues_checked_and_absent",
+          "independent_alternative_valid": "digest_independent_alternative_valid",
+          "cooperation_optional": "digest_cooperation_optional"
+        },
+        "witness_pairs": [
+          {
+            "preferred": "W_baseline",
+            "other": "W_change_digest"
+          }
+        ]
+      },
+      {
+        "id": "P5",
+        "pattern_id": "AP-SOC-R1",
+        "rule_id": "AP-SOC-R1",
+        "kind": "choice",
+        "source": "handover_call",
+        "target": "handover_guide",
+        "concern_id": "C_handover",
+        "fact_bindings": {
+          "reciprocal_opportunity": "handover_reciprocal_opportunity",
+          "approved_equivalent_channels": "handover_approved_equivalent_channels",
+          "no_uninterruptible_high_duty": "handover_no_uninterruptible_high_duty",
+          "resources_available": "handover_resources_available"
+        },
+        "witness_pairs": [
+          {
+            "preferred": "W_baseline",
+            "other": "W_change_handover"
+          }
+        ]
+      },
+      {
+        "id": "P6",
+        "pattern_id": "AP-RD-ORG-01",
+        "rule_id": "AP-RD-ORG-01",
+        "kind": "choice",
+        "source": "index_evidence",
+        "target": "append_evidence",
+        "concern_id": "C_evidence",
+        "fact_bindings": {
+          "visible_disorder": "evidence_visible_disorder",
+          "actor_directory_standard": "evidence_actor_directory_standard",
+          "minimum_retention_satisfied": "evidence_minimum_retention_satisfied",
+          "organization_difference_known": "evidence_organization_difference_known"
+        },
+        "witness_pairs": [
+          {
+            "preferred": "W_baseline",
+            "other": "W_change_evidence"
+          }
+        ]
+      },
+      {
+        "id": "P7",
+        "pattern_id": "AP-COMPASSION-R1",
+        "rule_id": "AP-COMPASSION-R1",
+        "kind": "choice",
+        "source": "guided_assistance",
+        "target": "standard_sheet",
+        "concern_id": "C_assistance",
+        "fact_bindings": {
+          "specific_difficulty_known": "assistance_specific_difficulty_known",
+          "relief_effect_known": "assistance_relief_effect_known",
+          "minimum_service_guaranteed": "assistance_minimum_service_guaranteed",
+          "voluntary_extra_relief": "assistance_voluntary_extra_relief",
+          "voluntary_cost_affordable": "assistance_voluntary_cost_affordable"
+        },
+        "witness_pairs": [
+          {
+            "preferred": "W_baseline",
+            "other": "W_change_assistance"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Constructed demonstration, separate from frozen evaluation cases.",
+    "Seven OR choices have independently declared evidence and complete one-change witness pairs.",
+    "Reference validation is provider-free; public contextualization performs fresh extraction and generation.",
+    "The public output profile shows only preferred_to choice relations."
+  ]
+}

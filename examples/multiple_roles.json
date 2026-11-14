@@ -1,0 +1,494 @@
+{
+  "id": "multiple_roles",
+  "name": "Service with three available roles",
+  "label": "Constructed role-selection reference",
+  "model": {
+    "id": "Multiple_Role_Service_v1",
+    "version": "1",
+    "roles": {
+      "coordinator": {
+        "label": "Service Coordinator",
+        "type": "role"
+      },
+      "records": {
+        "label": "Records Officer",
+        "type": "role"
+      },
+      "auditor": {
+        "label": "Service Auditor",
+        "type": "role"
+      }
+    },
+    "root": "service",
+    "nodes": {
+      "service": {
+        "id": "service",
+        "label": "Service Request Resolved",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "channel": {
+        "id": "channel",
+        "label": "Consultation Completed",
+        "kind": "goal",
+        "role": "coordinator",
+        "optional": false
+      },
+      "filing": {
+        "id": "filing",
+        "label": "Working Materials Retained",
+        "kind": "goal",
+        "role": "records",
+        "optional": false
+      },
+      "live": {
+        "id": "live",
+        "label": "Join Approved Live Consultation",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "guide": {
+        "id": "guide",
+        "label": "Read Approved Written Guide",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "index": {
+        "id": "index",
+        "label": "File by Accepted Index",
+        "kind": "task",
+        "role": "records",
+        "optional": false
+      },
+      "chronological": {
+        "id": "chronological",
+        "label": "File in Received Order",
+        "kind": "task",
+        "role": "records",
+        "optional": false
+      },
+      "close": {
+        "id": "close",
+        "label": "Close One-time Support Session",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": false
+      },
+      "update": {
+        "id": "update",
+        "label": "Send Promised Optional Update",
+        "kind": "task",
+        "role": "coordinator",
+        "optional": true
+      },
+      "order_quality": {
+        "id": "order_quality",
+        "label": "Well-organized Materials",
+        "kind": "softgoal",
+        "role": "records",
+        "optional": false
+      },
+      "trace_quality": {
+        "id": "trace_quality",
+        "label": "Request Traceability",
+        "kind": "hard_preference",
+        "role": "coordinator",
+        "optional": false
+      }
+    },
+    "refinements": [
+      {
+        "parent": "service",
+        "kind": "AND",
+        "children": [
+          "channel",
+          "filing",
+          "close",
+          "update"
+        ]
+      },
+      {
+        "parent": "channel",
+        "kind": "OR",
+        "children": [
+          "live",
+          "guide"
+        ]
+      },
+      {
+        "parent": "filing",
+        "kind": "OR",
+        "children": [
+          "index",
+          "chronological"
+        ]
+      }
+    ],
+    "hard_constraints": [
+      {
+        "source": "channel",
+        "target": "close",
+        "type": "pre"
+      },
+      {
+        "source": "close",
+        "target": "live",
+        "type": "npr"
+      },
+      {
+        "source": "close",
+        "target": "guide",
+        "type": "npr"
+      }
+    ],
+    "contributions": [
+      {
+        "source": "index",
+        "target": "order_quality",
+        "type": "makes"
+      },
+      {
+        "source": "chronological",
+        "target": "order_quality",
+        "type": "breaks"
+      },
+      {
+        "source": "filing",
+        "target": "trace_quality",
+        "type": "makes"
+      }
+    ],
+    "temporal_preferences": [
+      {
+        "id": "B_small",
+        "formula": "require_before",
+        "x": "filing",
+        "y": "close"
+      }
+    ],
+    "dependencies": [
+      {
+        "id": "D_retained_records",
+        "depender": "coordinator",
+        "dependee": "records",
+        "dependum": {
+          "kind": "goal",
+          "label": "Required Materials Retained"
+        },
+        "depender_node": "close",
+        "dependee_node": "filing"
+      }
+    ]
+  },
+  "persona": {
+    "actor_id": "A_Coordinator",
+    "name": "Coordinator",
+    "facets": [
+      "Sociability",
+      "Organization",
+      "Responsibility"
+    ],
+    "role_ids": [
+      "coordinator"
+    ],
+    "evidence": {
+      "source_id": "persona_construct",
+      "span_id": "Coordinator"
+    },
+    "description": "Coordinator can work as a Service Coordinator or Records Officer. In this constructed episode she plays only the Service Coordinator role. She values reciprocal consultation, orderly materials and keeping her personal promises."
+  },
+  "context": {
+    "id": "C_small_service",
+    "episode_id": "E_small_service",
+    "facts": {
+      "C_live_reciprocal_opportunity": {
+        "id": "C_live_reciprocal_opportunity",
+        "predicate": "reciprocal_opportunity",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_live_reciprocal_opportunity"
+        }
+      },
+      "C_live_approved_equivalent_channels": {
+        "id": "C_live_approved_equivalent_channels",
+        "predicate": "approved_equivalent_channels",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_live_approved_equivalent_channels"
+        }
+      },
+      "C_live_no_uninterruptible_high_duty": {
+        "id": "C_live_no_uninterruptible_high_duty",
+        "predicate": "no_uninterruptible_high_duty",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_live_no_uninterruptible_high_duty"
+        }
+      },
+      "C_live_resources_available": {
+        "id": "C_live_resources_available",
+        "predicate": "resources_available",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_live_resources_available"
+        }
+      },
+      "C_order_visible_disorder": {
+        "id": "C_order_visible_disorder",
+        "predicate": "visible_disorder",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_order_visible_disorder"
+        }
+      },
+      "C_order_actor_directory_standard": {
+        "id": "C_order_actor_directory_standard",
+        "predicate": "actor_directory_standard",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_order_actor_directory_standard"
+        }
+      },
+      "C_order_minimum_retention_satisfied": {
+        "id": "C_order_minimum_retention_satisfied",
+        "predicate": "minimum_retention_satisfied",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_order_minimum_retention_satisfied"
+        }
+      },
+      "C_order_organization_difference_known": {
+        "id": "C_order_organization_difference_known",
+        "predicate": "organization_difference_known",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_order_organization_difference_known"
+        }
+      },
+      "C_promise_prior_voluntary_actor_promise": {
+        "id": "C_promise_prior_voluntary_actor_promise",
+        "predicate": "prior_voluntary_actor_promise",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_promise_prior_voluntary_actor_promise"
+        }
+      },
+      "C_promise_promise_active_same_episode": {
+        "id": "C_promise_promise_active_same_episode",
+        "predicate": "promise_active_same_episode",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_promise_promise_active_same_episode"
+        }
+      },
+      "C_promise_promised_activity_optional": {
+        "id": "C_promise_promised_activity_optional",
+        "predicate": "promised_activity_optional",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_promise_promised_activity_optional"
+        }
+      },
+      "C_promise_promise_resources_and_deadline_feasible": {
+        "id": "C_promise_promise_resources_and_deadline_feasible",
+        "predicate": "promise_resources_and_deadline_feasible",
+        "value": true,
+        "evidence": {
+          "source_id": "constructed_context",
+          "span_id": "C_promise_promise_resources_and_deadline_feasible"
+        }
+      }
+    },
+    "current_work": {}
+  },
+  "sources": {
+    "constructed_context": {
+      "kind": "constructed_context",
+      "label": "Constructed role-selection episode conditions",
+      "spans": {
+        "C_live_reciprocal_opportunity": "Coordinator can ask questions and respond during the approved live consultation.",
+        "C_live_approved_equivalent_channels": "The live consultation and written guide are both approved and equally sufficient.",
+        "C_live_no_uninterruptible_high_duty": "There is no uninterruptible duty that prevents reciprocal consultation.",
+        "C_live_resources_available": "Both parties have sufficient time, energy and resources for consultation.",
+        "C_order_visible_disorder": "The current working materials are visibly disordered.",
+        "C_order_actor_directory_standard": "Coordinator accepts the specified directory and indexing standard.",
+        "C_order_minimum_retention_satisfied": "Both filing methods retain all the required working materials.",
+        "C_order_organization_difference_known": "Indexed filing meets the organizing standard; received-order filing does not.",
+        "C_promise_prior_voluntary_actor_promise": "Coordinator voluntarily promised a specific update to its intended recipient.",
+        "C_promise_promise_active_same_episode": "The personal promise remains active for this same episode and recipient.",
+        "C_promise_promised_activity_optional": "The update is optional for business completion and may be omitted without making the process infeasible.",
+        "C_promise_promise_resources_and_deadline_feasible": "Current resources and the promised deadline permit the update."
+      }
+    },
+    "persona_construct": {
+      "kind": "constructed_persona",
+      "label": "Constructed Coordinator role-selection persona",
+      "spans": {
+        "Coordinator": "Coordinator can work as a Service Coordinator or Records Officer. In this constructed episode she plays only the Service Coordinator role. She values reciprocal consultation, orderly materials and keeping her personal promises."
+      }
+    }
+  },
+  "concerns": {
+    "consultation_reciprocity": {
+      "label": "Live reciprocal consultation",
+      "ast": {
+        "attains": "live"
+      }
+    },
+    "directory_standard": {
+      "label": "Accepted directory reached",
+      "ast": {
+        "attains": "index"
+      }
+    },
+    "optional_promise": {
+      "label": "Optional personal promise fulfilled",
+      "ast": {
+        "attains": "update"
+      }
+    }
+  },
+  "witnesses": [
+    {
+      "id": "live_index_False",
+      "sequence": [
+        "live",
+        "index",
+        "close"
+      ]
+    },
+    {
+      "id": "live_index_True",
+      "sequence": [
+        "live",
+        "index",
+        "close",
+        "update"
+      ]
+    },
+    {
+      "id": "live_chronological_False",
+      "sequence": [
+        "live",
+        "chronological",
+        "close"
+      ]
+    },
+    {
+      "id": "live_chronological_True",
+      "sequence": [
+        "live",
+        "chronological",
+        "close",
+        "update"
+      ]
+    },
+    {
+      "id": "guide_index_False",
+      "sequence": [
+        "guide",
+        "index",
+        "close"
+      ]
+    },
+    {
+      "id": "guide_index_True",
+      "sequence": [
+        "guide",
+        "index",
+        "close",
+        "update"
+      ]
+    },
+    {
+      "id": "guide_chronological_False",
+      "sequence": [
+        "guide",
+        "chronological",
+        "close"
+      ]
+    },
+    {
+      "id": "guide_chronological_True",
+      "sequence": [
+        "guide",
+        "chronological",
+        "close",
+        "update"
+      ]
+    }
+  ],
+  "candidate_bundle": {
+    "schema_version": "apate.candidates.v1",
+    "model_hash": "0422bf324566e7afe864d9cb2d5631dd1ccdcdc3a719e2e4755ff6dd9cac28ec",
+    "provider": {
+      "kind": "assistant-import",
+      "model_reported": "current-assistant",
+      "snapshot": null
+    },
+    "actor_id": "A_Coordinator",
+    "role_id": "coordinator",
+    "context_id": "C_small_service",
+    "candidates": [
+      {
+        "id": "C_live",
+        "pattern_id": "AP-SOC-R1",
+        "kind": "choice",
+        "concern_id": "consultation_reciprocity",
+        "fact_bindings": {
+          "reciprocal_opportunity": "C_live_reciprocal_opportunity",
+          "approved_equivalent_channels": "C_live_approved_equivalent_channels",
+          "no_uninterruptible_high_duty": "C_live_no_uninterruptible_high_duty",
+          "resources_available": "C_live_resources_available"
+        },
+        "source": "live",
+        "target": "guide",
+        "rule_id": "AP-SOC-R1"
+      },
+      {
+        "id": "C_order",
+        "pattern_id": "AP-RD-ORG-01",
+        "kind": "choice",
+        "concern_id": "directory_standard",
+        "fact_bindings": {
+          "visible_disorder": "C_order_visible_disorder",
+          "actor_directory_standard": "C_order_actor_directory_standard",
+          "minimum_retention_satisfied": "C_order_minimum_retention_satisfied",
+          "organization_difference_known": "C_order_organization_difference_known"
+        },
+        "source": "index",
+        "target": "chronological",
+        "rule_id": "AP-RD-ORG-01"
+      },
+      {
+        "id": "C_promise",
+        "pattern_id": "AP-RD-RES-01",
+        "kind": "optional_participation",
+        "concern_id": "optional_promise",
+        "fact_bindings": {
+          "prior_voluntary_actor_promise": "C_promise_prior_voluntary_actor_promise",
+          "promise_active_same_episode": "C_promise_promise_active_same_episode",
+          "promised_activity_optional": "C_promise_promised_activity_optional",
+          "promise_resources_and_deadline_feasible": "C_promise_promise_resources_and_deadline_feasible"
+        },
+        "formula": "sometime",
+        "x": "update",
+        "rule_id": "AP-RD-RES-01"
+      }
+    ]
+  }
+}

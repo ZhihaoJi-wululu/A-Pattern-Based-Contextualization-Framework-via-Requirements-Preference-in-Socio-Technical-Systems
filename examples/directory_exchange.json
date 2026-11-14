@@ -1,0 +1,187 @@
+{
+  "id": "confidential-directory-exchange",
+  "name": "Confidential Directory Exchange",
+  "model": {
+    "id": "confidential-directory-exchange",
+    "version": "1",
+    "root": "G0",
+    "roles": {
+      "R1": {
+        "label": "On-duty telephone operator",
+        "type": "role"
+      }
+    },
+    "nodes": {
+      "G0": {
+        "id": "G0",
+        "label": "Confidential directory exchange completed",
+        "kind": "goal",
+        "role": "R1",
+        "optional": false
+      },
+      "G1": {
+        "id": "G1",
+        "label": "Authorized collection arranged",
+        "kind": "goal",
+        "role": "R1",
+        "optional": false
+      },
+      "G2": {
+        "id": "G2",
+        "label": "Old directory delivered to authorized custody",
+        "kind": "goal",
+        "role": "R1",
+        "optional": false
+      },
+      "G3": {
+        "id": "G3",
+        "label": "New edition received and exchange evidence retained",
+        "kind": "goal",
+        "role": "R1",
+        "optional": false
+      },
+      "T1": {
+        "id": "T1",
+        "label": "Confirm collection plan jointly",
+        "kind": "task",
+        "role": "R1",
+        "optional": false,
+        "description": "The operator takes part in a two-way confirmation of the collection plan."
+      },
+      "T2": {
+        "id": "T2",
+        "label": "Read and adopt approved schedule alone",
+        "kind": "task",
+        "role": "R1",
+        "optional": false
+      },
+      "T3": {
+        "id": "T3",
+        "label": "Hand over at a staffed collection desk",
+        "kind": "task",
+        "role": "R1",
+        "optional": false,
+        "description": "The operator personally carries the old directory on foot to the authorized staffed collection desk and hands it over under the same custody checks as the seated handover."
+      },
+      "T4": {
+        "id": "T4",
+        "label": "Seated handover to a verified courier",
+        "kind": "task",
+        "role": "R1",
+        "optional": false,
+        "description": "The operator remains seated at the current desk while the verified courier collects the same directory under the same custody checks."
+      },
+      "T5": {
+        "id": "T5",
+        "label": "Verify receipt of the new edition",
+        "kind": "task",
+        "role": "R1",
+        "optional": false
+      },
+      "T6": {
+        "id": "T6",
+        "label": "Archive receipt and new-edition identifier",
+        "kind": "task",
+        "role": "R1",
+        "optional": false
+      },
+      "T7": {
+        "id": "T7",
+        "label": "Prepare an additional paper copy of the exchange record",
+        "kind": "task",
+        "role": "R1",
+        "optional": true
+      },
+      "Q2": {
+        "id": "Q2",
+        "label": "Exchange traceability",
+        "kind": "softgoal",
+        "role": "R1",
+        "optional": false
+      },
+      "Q3": {
+        "id": "Q3",
+        "label": "Record redundancy",
+        "kind": "softgoal",
+        "role": "R1",
+        "optional": false
+      },
+      "Q4": {
+        "id": "Q4",
+        "label": "Reduced administrative effort",
+        "kind": "softgoal",
+        "role": "R1",
+        "optional": false
+      }
+    },
+    "refinements": [
+      {
+        "parent": "G0",
+        "kind": "AND",
+        "children": [
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      {
+        "parent": "G1",
+        "kind": "OR",
+        "children": [
+          "T1",
+          "T2"
+        ]
+      },
+      {
+        "parent": "G2",
+        "kind": "OR",
+        "children": [
+          "T3",
+          "T4"
+        ]
+      },
+      {
+        "parent": "G3",
+        "kind": "AND",
+        "children": [
+          "T5",
+          "T6",
+          "T7"
+        ]
+      }
+    ],
+    "contributions": [
+      {
+        "source": "T6",
+        "target": "Q2",
+        "type": "makes"
+      },
+      {
+        "source": "T7",
+        "target": "Q3",
+        "type": "makes"
+      },
+      {
+        "source": "T7",
+        "target": "Q4",
+        "type": "breaks"
+      }
+    ]
+  },
+  "persona": {
+    "actor_id": "Actor",
+    "name": "Directory Operator",
+    "role_ids": [
+      "R1"
+    ],
+    "facets": [
+      "Sociability",
+      "Trust",
+      "Respectfulness",
+      "Energy Level",
+      "Organization",
+      "Responsibility"
+    ],
+    "description": "The on-duty telephone operator enjoys two-way conversation, expects goodwill and honest cooperation, respects others and avoids taking advantage of them, is energetic and enjoys physical activity, arranges work materials systematically, and honors voluntary commitments."
+  }
+}
