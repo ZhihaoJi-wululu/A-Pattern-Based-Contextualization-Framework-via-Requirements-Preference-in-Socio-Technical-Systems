@@ -1,0 +1,58 @@
+{
+  "schema_version": "apate.vendor.v1",
+  "shop2": {
+    "name": "SHOP2",
+    "version": "1.3 alpha with SIFT mods (May 26, 2005)",
+    "repository": "https://github.com/cl-axon/shop2",
+    "branch": "cvs/mirror",
+    "revision": "8dec6d933be8d1102076aa0ab94d732bdb317e2f",
+    "url": "https://raw.githubusercontent.com/cl-axon/shop2/8dec6d933be8d1102076aa0ab94d732bdb317e2f/shop2.lisp",
+    "file": "shop2/shop2.lisp",
+    "bytes": 155162,
+    "sha256": "533ec0e676f7ec6bc4e2b1608f912d53f61dfd6edf25af89c371c7be25ca6968",
+    "license": "MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later",
+    "license_notice": "shop2/LICENSE-NOTICE.txt",
+    "dependencies": [
+      {
+        "file": "shop2/state-utils.lisp",
+        "url": "https://raw.githubusercontent.com/cl-axon/shop2/8dec6d933be8d1102076aa0ab94d732bdb317e2f/state-utils.lisp",
+        "sha256": "2a0304b70e04ad9824d7945425f5da9f194905e64cb1fdc87503aa2173b50370",
+        "bytes": 2308
+      }
+    ]
+  },
+  "abcl": {
+    "name": "Armed Bear Common Lisp",
+    "version": "1.9.2",
+    "url": "https://abcl.org/releases/1.9.2/abcl-1.9.2.jar",
+    "file": "abcl/abcl-1.9.2.jar",
+    "bytes": 13272418,
+    "sha256": "51d0dafac1cea85fc2896b5cead62ce529569c6c02962f854a72b9484a6e45d7",
+    "license_files": [
+      "abcl/COPYING"
+    ],
+    "official_binary_archive": "https://abcl.org/releases/1.9.2/abcl-bin-1.9.2.zip",
+    "license_source_archive": "https://abcl.org/releases/1.9.2/abcl-src-1.9.2.zip"
+  },
+  "license_texts": [
+    {
+      "file": "shop2/MPL-1.1.txt",
+      "url": "https://www.mozilla.org/media/MPL/1.1/index.0c5913925d40.txt",
+      "sha256": "f849fc26a7a99981611a3a370e83078deb617d12a45776d6c4cada4d338be469"
+    },
+    {
+      "file": "shop2/GPL-2.0.txt",
+      "url": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
+      "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6"
+    },
+    {
+      "file": "shop2/LGPL-2.1.txt",
+      "url": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt",
+      "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+    }
+  ],
+  "htnplan_p": {
+    "status": "source_not_available",
+    "description": "The 2011 authors original translator and HTNPlan-P source have not been obtained. SHOP2 is their genuine public upstream, not HTNPlan-P."
+  }
+}

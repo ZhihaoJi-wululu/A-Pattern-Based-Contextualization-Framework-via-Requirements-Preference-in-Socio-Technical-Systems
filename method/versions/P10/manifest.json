@@ -1,0 +1,63 @@
+{
+  "method_id": "apate.preferred-to.single-facet.checked.parallel.v2",
+  "prompt_version": "P10",
+  "framework_revision": "apate.framework.checked.hybrid-original-structure-evidence.v1",
+  "prompt_sha256": "4674a2e081803944b143e33e948ccf6fde830a9f08985ad57378d03bfc91f1c6",
+  "checker_prompt_sha256": "b728620d1da51f17bb4af2f1a82ed11e8071f5642a602ac6aa50e77f2dce00a6",
+  "facet_source_policy": "strict_empty_original_rules_local_proof_otherwise_remote_llm",
+  "stages": [
+    "generate",
+    "check"
+  ],
+  "normal_logical_stages_per_selected_facet": 2,
+  "transport_layout": "stage-attempt-subdirectories.v1",
+  "framework_sha256": "5a98326f47acaebf5a38ca8c766b606723e33ed0f9b60de14c9a86d0212f0b12",
+  "configuration": {
+    "temperature": 0,
+    "max_tokens": 12000,
+    "stream": false,
+    "automatic_retries": 0,
+    "redirects": 0,
+    "case_concurrency": 1,
+    "facet_concurrency": 2,
+    "case_seconds": 7200,
+    "total_seconds": 86400,
+    "mechanical_limits": {
+      "max_realizations": 2048,
+      "max_prefixes": 50000,
+      "max_seconds": 30
+    },
+    "schema_transport": "strict_json_schema",
+    "facet_concurrency_ceiling": 15,
+    "facet_concurrency_effective": 2,
+    "capacity_profile_id": "apate.capacity.effective2.ceiling15.v1",
+    "provider_failure_cooldown_seconds": 60,
+    "provider_automatic_retries": 0,
+    "client_automatic_retries": 0,
+    "automatic_retries_scope": "Hidden provider/client retries only; explicit bounded stage recovery is separately configured.",
+    "explicit_stage_retry_limit": 2,
+    "logical_stage_max_physical_attempts": 3,
+    "transport_retry_interval_seconds": 60,
+    "derived_schema_limits": {
+      "max_enum_values_per_field": 256,
+      "max_enum_utf8_bytes_per_field": 16384
+    },
+    "local_empty_rule_certificate_enabled": true,
+    "local_empty_rule_certificate_policy": "apate.local-zero-choice.eligibility-certificate.v1",
+    "local_empty_rule_checker_policy": "apate.local-zero-choice.recompute-checker.v1",
+    "framework_revision": "apate.framework.checked.hybrid-original-structure-evidence.v1",
+    "mechanical_structure_index_enabled": true,
+    "mechanical_structure_index_policy_id": "apate.original-structure.finite-pair-evidence.v1",
+    "mechanical_structure_index_limits": {
+      "max_seconds": 5.0,
+      "max_pair_calls": 32,
+      "max_nodes": 128,
+      "max_roles": 32
+    },
+    "mechanical_structure_index_pair_limits": {
+      "max_realizations": 2048,
+      "max_prefixes": 50000,
+      "max_seconds": 30
+    }
+  }
+}
